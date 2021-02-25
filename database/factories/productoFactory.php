@@ -22,7 +22,12 @@ class productoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_usuario' => $this->faker->numberBetween(1, 20),
+            'id_categoria' => $this->faker->numberBetween(1, 20),
+            'nombre' => $this->faker->sentence(),
+            'precio' => $this->faker->numberBetween(1, 60),
+            'descripcion' => $this->faker->paragraph(),
+            'existencia' => $this->faker->numberBetween(0, 6)
         ];
     }
 }

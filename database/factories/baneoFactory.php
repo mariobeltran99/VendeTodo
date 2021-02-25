@@ -22,7 +22,7 @@ class baneoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_usuario' => $this->faker->numberBetween(1, 20)
         ];
     }
 }
