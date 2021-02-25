@@ -29,6 +29,7 @@ Cambiar el nombre del archivo ".env.example" a ".env"
 ## Database
 
 Agregar las credenciales de la base de datos en el archivo llamado ".env"
+y correr -> php artisan migrate --seed
 ## Learning Laravel
 
 
