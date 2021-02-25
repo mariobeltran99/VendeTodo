@@ -25,7 +25,7 @@ class valoracionFactory extends Factory
         return [
             'id_usuario' => $this->faker->numberBetween(1, 20),
             'id_producto' => $this->faker->numberBetween(1, 20),
-            'estrellas' => $this->faker->numberBetween(1, 5),
+            'estrella' => $this->faker->numberBetween(1, 5),
             'comentario' => $this->faker->paragraph()
         ];
     }

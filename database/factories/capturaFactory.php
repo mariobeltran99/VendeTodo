@@ -22,7 +22,8 @@ class capturaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_denuncia' => $this->faker->numberBetween(1,20),
+            'foto' => $this->faker->randomElement(['imagen1.jpg','imagen2.jpg','imagen3.png','imagen4.png'])
         ];
     }
 }
