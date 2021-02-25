@@ -4,6 +4,18 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\categoria;
+use App\Models\producto;
+use App\Models\usuario;
+use App\Models\imagen;
+
+use App\Models\denuncia;
+use App\Models\baneo;
+use App\Models\captura;
+
+
+use App\Models\telefono;
+use App\Models\valoracion;
+use App\Models\visita;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +27,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        categoria::factory(5)->create();
+        categoria::factory(20)->create();
+        usuario::factory(20)->create();
+        producto::factory(20)->create();
+        imagen::factory(50)->create();
+        denuncia::factory(20)->create();
+        captura::factory(50)->create();
+        baneo::factory(3)->create();
+        telefono::factory(20)->create();
+        valoracion::factory(50)->create();
+        visita::factory(100)->create();
     }
 }
