@@ -18,9 +18,9 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre_usuario', 250)->unique();
             $table->string('nombre', 100);
             $table->string('clave');
-            $table->binary('foto');
+            $table->string('foto', 20);
             $table->boolean('activo');
-            $table->char('rol',1);
+            $table->char('rol', 1);
             $table->string('departamento', 50);
             $table->rememberToken();
             $table->timestamps();
