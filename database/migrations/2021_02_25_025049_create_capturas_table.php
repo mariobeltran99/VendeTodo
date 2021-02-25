@@ -16,7 +16,7 @@ class CreateCapturasTable extends Migration
         Schema::create('capturas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_denuncia');
-            $table->binary('imagen');
+            $table->string('foto', 20);
             $table->foreign('id_denuncia')->references('id')->on('denuncias');
             $table->timestamps();
         });
