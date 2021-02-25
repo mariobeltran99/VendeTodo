@@ -22,7 +22,8 @@ class telefonoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_usuario' => $this->faker->numberBetween(1,20),
+            'telefono' => $this->faker->numberBetween(21000000,79999999)
         ];
     }
 }

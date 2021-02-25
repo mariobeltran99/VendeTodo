@@ -22,7 +22,9 @@ class denunciaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_usuario_denunciado' => $this->faker->numberBetween(1,20),
+            'motivo' => $this->faker->paragraph,
+            'vista' => $this->faker->boolean
         ];
     }
 }

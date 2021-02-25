@@ -22,7 +22,7 @@ class CreateUsuariosTable extends Migration
             $table->boolean('activo');
             $table->char('rol', 1);
             $table->string('departamento', 50);
-            $table->rememberToken();
+            $table->string('token', 100);
             $table->timestamps();
         });
     }

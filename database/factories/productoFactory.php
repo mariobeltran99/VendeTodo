@@ -26,6 +26,7 @@ class productoFactory extends Factory
             'id_categoria' => $this->faker->numberBetween(1, 20),
             'nombre' => $this->faker->sentence(),
             'precio' => $this->faker->numberBetween(1, 60),
+            'negociable' => $this->faker->boolean(),
             'descripcion' => $this->faker->paragraph(),
             'existencia' => $this->faker->numberBetween(0, 6)
         ];
