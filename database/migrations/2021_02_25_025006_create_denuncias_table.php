@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriaTable extends Migration
+class CreateDenunciasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateCategoriaTable extends Migration
      */
     public function up()
     {
-        Schema::create('categoria', function (Blueprint $table) {
+        Schema::create('denuncias', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 250);
-            $table->text('descripcion');
+            $table->unsignedBigInteger('id_usuario_denunciado');
+            $table->text('motivo');
+            $table->boolean('vista');
+            $table->foreign('id_usuario_denunciado')->references('id')->on('usuarios');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateCategoriaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoria');
+        Schema::dropIfExists('denuncias');
     }
 }
