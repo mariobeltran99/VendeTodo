@@ -25,7 +25,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 IMPORTANTE
 
-Cambiar el nombre del archivo ".env.example" a ".env"
+Cambiar el nombre del archivo ".env.example" a ".env".
+
+
 Luego ejecutar el siguiente comando para instalar y configurar tailwindCSS.
 
 ```bash
