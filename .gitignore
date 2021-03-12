@@ -11,6 +11,9 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/resources/img/*.jpg
+/resources/img/*.png
+/resources/img/*.jpeg
 *.jpg
 *.png
 *.jpeg
