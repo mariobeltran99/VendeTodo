@@ -26,6 +26,7 @@
                             rounded-md bg-indigo-700 hover:bg-indigo-900 hover:shadow-lg">Ingresar  <i class="fas fa-sign-in-alt"></i></button>
                         </div>
                     </div>
+                </form>
             </div>
         </div>
     <div class="bg-gray-900">
