@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\usuario;
 
-class VistasController extends Controller
+class UsuarioController extends Controller
 {
-    public function login(){
+    public function login()
+    {
         return view('login');
     }
-    public function register(){
+    public function register()
+    {
         return view('register');
     }
 }
