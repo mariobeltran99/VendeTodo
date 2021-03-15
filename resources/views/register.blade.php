@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
-        <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
+        <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md"><br><br>
             <h1 class="font-bold text-center text-2xl mb-5">Vende Todo</h1>
             <div class="bg-white shadow w-full rounded-lg divide-y divide-gray-200 mt-4 p-2">
                 <div class="px-5 py-7 mt-5">

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\VistasController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', [VistasController::class, 'login']);
-Route::get('register', [VistasController::class, 'register']);
+Route::get('login', [UsuarioController::class, 'login']);
+Route::get('register', [UsuarioController::class, 'register']);
