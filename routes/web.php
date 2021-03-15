@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,4 @@ Route::get('/', function () {
 
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
+Route::get('/admin/category', [CategoriaController::class, 'admon']);
