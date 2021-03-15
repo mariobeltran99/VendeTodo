@@ -21,4 +21,5 @@ Route::get('/', function () {
 
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
+Route::get('home', [UsuarioController::class, 'home']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
