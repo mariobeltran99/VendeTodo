@@ -9,7 +9,7 @@ class DenunciaController extends Controller
 {
     public function admon()
     {
-        $listdenuncia = denuncia::where('vista', 0)->get(); //$this->verTodo(); //denuncia::where('vista', 0);
+        $listdenuncia = denuncia::where('vista', 0)->get();
         return view('adminDenuncias', compact('listdenuncia'));
     }
 
