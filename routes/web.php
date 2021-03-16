@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DenunciaController;
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,4 @@ Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
 Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
+Route::get('viewProduct', [ProductoController::class, 'viewProduct']);
