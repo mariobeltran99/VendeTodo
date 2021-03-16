@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\DenunciaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,4 @@ Route::get('home', [UsuarioController::class, 'home']);
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
+Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
