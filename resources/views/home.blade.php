@@ -1,7 +1,9 @@
 @extends('layout')
 @section('content')
     <div class="min-w-screen min-h-screen bg-gray-200 peeb-5 pt-20">
-        <x-navigation />
+        <x-navigation
+            flagR="A"
+        />
         <br>
         <br>
         <div class="w-full mx-auto rounded-xl shadow-lg p-10 text-gray-800 relative overflow-hidden max-w-3xl">
@@ -16,7 +18,12 @@
             <div class="flex flex-wrap -mx-1 lg:-mx-4">
                 <!-- repetir este div -->
                 <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-                    <x-card-product/>
+                    <x-card-product
+                        titleR="Computadora"
+                        priceR="40.00"
+                        categoryR="Informática"
+                        imgsrcR="https://www.diariodigital.com.do/wp-content/uploads/2020/09/computadora.jpg"
+                    />
                 </div>
                 <!-- fin del div -->
             </div>

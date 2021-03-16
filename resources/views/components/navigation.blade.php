@@ -40,6 +40,7 @@
                             <span>Mis artículos</span>
                         </a>
                     </li>
+                @if($flag == 'A')
                     <!-- este li lo podes ocultar por el role del usuario -->
                     <li class="block relative" x-data="{showChildren:false}" @click.away="showChildren=false">
                         <a href="#" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100" @click.prevent="showChildren=!showChildren">
@@ -75,6 +76,8 @@
                             </div>
                         </div>
                     </li>
+                @endif
+                    <!-- end li-->
                     <li class="block relative" x-data="{showChildren:false}" @click.away="showChildren=false">
                         <a href="#" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100" @click.prevent="showChildren=!showChildren">
                             <span class="mr-3 text-xl"> <i class="fas fa-cogs"></i></span>
