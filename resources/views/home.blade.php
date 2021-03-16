@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="min-w-screen min-h-screen bg-gray-200 peeb-5 pt-20">
+    <div class="min-w-screen min-h-screen bg-gray-400 peeb-5 pt-20">
         <x-navigation
             flagR="A"
         />
