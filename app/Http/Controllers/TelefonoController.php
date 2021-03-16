@@ -9,6 +9,6 @@ class TelefonoController extends Controller
 {
     public function editPhone()
     {
-        return view('editUser');
+        return view('editPhone');
     }
 }
