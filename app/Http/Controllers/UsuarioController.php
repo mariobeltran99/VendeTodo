@@ -15,10 +15,16 @@ class UsuarioController extends Controller
     {
         return view('register');
     }
-    public function home(){
+    public function home()
+    {
         return view('home');
     }
-    public function viewUsers(){
+    public function viewUsers()
+    {
         return view('adminUsers');
+    }
+    public function editUser()
+    {
+        return view('editUser');
     }
 }
