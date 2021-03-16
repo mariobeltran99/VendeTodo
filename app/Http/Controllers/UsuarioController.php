@@ -25,6 +25,7 @@ class UsuarioController extends Controller
     }
     public function editUser()
     {
-        return view('editUser');
+        $arrayUser = usuario::find(1);
+        return view('editUser', compact('arrayUser'));
     }
 }
