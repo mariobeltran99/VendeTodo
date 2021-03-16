@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
+Route::get('preferences', [UsuarioController::class, 'preferences']);

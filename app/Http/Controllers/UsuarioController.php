@@ -15,4 +15,8 @@ class UsuarioController extends Controller
     {
         return view('register');
     }
+    public function preferences()
+    {
+        return view('preferences');
+    }
 }
