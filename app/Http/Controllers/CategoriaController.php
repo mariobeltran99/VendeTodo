@@ -16,7 +16,8 @@ class CategoriaController extends Controller
     }
     public function admon()
     {
-        return view('adminCategoria');
+        $listCategorie = $this->verTodo();
+        return view('adminCategoria', compact('listCategorie'));
     }
     private function verTodo()
     {
