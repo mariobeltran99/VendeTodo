@@ -5,6 +5,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\TelefonoController;
+use App\Http\Controllers\VisitasController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,5 @@ Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
 Route::get('viewProduct', [ProductoController::class, 'viewProduct']);
 Route::get('/user/edit', [UsuarioController::class, 'editUser']);
 Route::get('/user/phone', [TelefonoController::class, 'editPhone']);
+Route::get('/admin/viewsPage', [VisitasController::class, 'viewsPage']);
+
