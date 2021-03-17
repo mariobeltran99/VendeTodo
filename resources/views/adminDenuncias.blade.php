@@ -1,13 +1,8 @@
-@extends('layout')
-@section('content')
-<div class="bg-gray-400">
-    <x-navigation
-            flagR="A"
-    />
-    <br><br>
-    <div class="container mx-auto px-4 sm:px-8">
+@extends('homeLayout')
+@section('container')
+    <div class="container mx-auto mt-6">
         <div class="py-8">
-            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <div class="overflow-x-auto">
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                     <table class="min-w-full leading-normal">
                         <thead>
@@ -100,5 +95,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -1,5 +1,5 @@
-@extends('layout')
-@section('content')
+@extends('homeLayout')
+@section('container')
     <style>
         [x-cloak] {
             display: none;
@@ -23,11 +23,7 @@
             );
         }
     </style>
-    <div class="bg-gray-400">
-        <x-navigation flagR="A" />
-        <br>
-        <br>
-        <div x-data="app()" x-cloak class="px-4">
+        <div x-data="app()" x-cloak class="px-4 mt-6">
             <div class="max-w-lg mx-auto py-10">
                 <div class="shadow p-6 rounded-lg bg-white">
                     <div class="md:flex md:justify-between md:items-center">
@@ -96,7 +92,6 @@
                 </div>
             </div>
         </div>
-        <br><br>
         <script>
             function app() {
                 return {
@@ -122,5 +117,4 @@
                 }
             }
         </script>
-    </div>
 @endsection
