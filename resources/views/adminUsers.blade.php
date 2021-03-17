@@ -1,10 +1,6 @@
-@extends('layout')
-@section('content')
-<div class="bg-gray-400">
-    <x-navigation flagR="A" />
-    <br>
-    <br>
-    <div class="w-full mx-auto rounded-xl shadow-lg p-10 text-gray-800 relative overflow-hidden max-w-3xl">
+@extends('homeLayout')
+@section('container')
+    <div class="w-full mx-auto rounded-xl shadow-lg mt-6 p-10 text-gray-800 relative overflow-hidden max-w-3xl">
         <div class="relative mt-1">
             <input type="text" id="password" class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-xl hover:border-gray-300 focus:outline-none focus:border-blue-300 transition-colors" placeholder="Buscar...">
             <button class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors"><i class="fas fa-search"></i></button>
@@ -73,7 +69,7 @@
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                    Jan 21, 2020
+                                    Ene 21, 2020
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -144,5 +140,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -1,11 +1,6 @@
-@extends('layout')
-@section('content')
-<div class="bg-gray-400">
-    <x-navigation
-            flagR="A"
-    />
-    <br><br>
-    <form enctype="multipart/form-data">
+@extends('homeLayout')
+@section('container')
+    <form enctype="multipart/form-data" class="mt-6">
         <div class="p-10 xs:p-0 mx-auto md:w-full mt-4 md:max-w-6xl">
             <div class="bg-white shadow w-full divide-y divide-gray-200 mt-4 p-2">
                 <div class="px-5 py-7 mt-5">
@@ -34,5 +29,4 @@
             </div>
         </div>
     </form>
-    <br><br>
 @endsection
