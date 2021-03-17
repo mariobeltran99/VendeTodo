@@ -16,10 +16,10 @@
                     <label class="font-semibold text-sm text-gray-600 pb-1 block">Contraseña de acceso</label>
                     <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" maxlength="50" placeholder="Contraseña, si no desea cambiarla dejarla en blanco " />
                     <div class="mb-2"> <span>Foto de perfil, si no desea cambiarla dejarla en blanco</span>
-                        <div class="relative h-40 rounded-lg border-dashed border-2 border-gray-200 bg-white flex justify-center items-center hover:cursor-pointer"> <!-- AQUIIII -->
+                        <div class="relative h-70 rounded-lg border-dashed border-2 border-gray-200 bg-white flex justify-center items-center hover:cursor-pointer"> <!-- AQUIIII -->
                             <div class="absolute">
                                 <div class="flex flex-col items-center"><span class="block text-gray-400 font-normal">Sube tu foto aqui</span> <span class="block text-gray-400 font-normal"> <i class="fas fa-cloud-upload-alt fa-3x text-gray-200"></i></span> <span class="block text-blue-400 font-normal">Busca los archivos</span> </div>
-                            </div> <input type="file" class="h-full w-full opacity-0" name="">
+                            </div> <input type="file" class="h-full w-full opacity-0 p-6" name="">
                         </div>
                         <div class="flex justify-between items-center text-gray-400"> <span>Tipo de archivos aceptados: JPG, JPEG, PNG</span> <span class="flex items-center "><i class="fa fa-lock mr-1"></i> Seguro </span> </div>
                     </div>
