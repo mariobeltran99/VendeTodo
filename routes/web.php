@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Vistas
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
 Route::get('home', [UsuarioController::class, 'home']);
@@ -42,4 +42,7 @@ Route::get('conductingBusiness', [VisitasController::class, 'conducting']);
 Route::get('cars', [VisitasController::class, 'cars']);
 Route::get('platformUsage', [VisitasController::class, 'platform']);
 Route::get('classified', [VisitasController::class, 'classified']);
+
+//programacion
 Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name('user.loginregister');
+Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.loginregister');

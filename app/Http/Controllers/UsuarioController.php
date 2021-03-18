@@ -30,8 +30,7 @@ class UsuarioController extends Controller
     }
     public function loginRegister(Request $request)
     {
-        $array = usuario::where('nombre_usuario', $request->name)->get();
-        if (count($array) != 0) {
+        if ($this->existEmail($request->name)) {
             return view('login', [
                 'email' => $request->name
             ]);
@@ -39,6 +38,30 @@ class UsuarioController extends Controller
             return view('register', [
                 'email' => $request->name
             ]);
+        }
+    }
+    private function existEmail($email)
+    {
+        $array = usuario::where('nombre_usuario', $email)->get();
+        if (count($array) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function plogin(Request $request)
+    {
+        //luego hago EL BAN -> Habilitar cuenta luego de
+        $array = usuario::where('nombre_usuario', $request->email)->where('clave', md5($request->passs))->get()->first();
+        if (!empty($array)) {
+            session([
+                'id' => $array->id,
+                'rol' => strtoupper($array->rol)
+            ]);
+            //return session('id') . " -> " . session('rol');
+            return redirect()->to('home/')->send();
+        } else {
+            return redirect()->to('login/')->send();
         }
     }
 }
