@@ -48,3 +48,17 @@ Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name
 Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.plogin');
 Route::post('Pregister/', [UsuarioController::class, 'Pregister'])->name('user.Pregister');
 Route::post('admonPreferences/', [CategoriaController::class, 'admonPreferences'])->name('categorie.admonPreferences');
+
+//PRoteccion de rutas de programacion
+Route::get('loginRegister', function () {
+    return view('errors.404');
+});
+Route::get('plogin', function () {
+    return view('errors.404');
+});
+Route::get('Pregister', function () {
+    return view('errors.404');
+});
+Route::get('admonPreferences', function () {
+    return view('errors.404');
+});
