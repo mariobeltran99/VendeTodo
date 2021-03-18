@@ -9,7 +9,7 @@
         <title>Vende Todo</title>
     </head>
     <body>
-        <main role="main">
+        <main role="main" class="bg-gray-400">
             @yield('content')
         </main>
 
