@@ -21,11 +21,11 @@ Route::get('/', function () {
 
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
-<<<<<<< HEAD
 Route::get('preferences', [UsuarioController::class, 'preferences']);
-=======
 Route::get('home', [UsuarioController::class, 'home']);
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
->>>>>>> 16bab728a0e34f87d41d0db1f39034fc7b279908
+Route::get('myArticules', [UsuarioController::class, 'myArticules']);
+Route::get('sell', [UsuarioController::class, 'sell']);
+Route::get('cover', [UsuarioController::class, 'cover']);
