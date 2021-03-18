@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Vistas
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
 Route::get('home', [UsuarioController::class, 'home']);
@@ -43,3 +43,22 @@ Route::get('cars', [VisitasController::class, 'cars']);
 Route::get('platformUsage', [VisitasController::class, 'platform']);
 Route::get('classified', [VisitasController::class, 'classified']);
 
+//programacion
+Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name('user.loginregister');
+Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.plogin');
+Route::post('Pregister/', [UsuarioController::class, 'Pregister'])->name('user.Pregister');
+Route::post('admonPreferences/', [CategoriaController::class, 'admonPreferences'])->name('categorie.admonPreferences');
+
+//PRoteccion de rutas de programacion
+Route::get('loginRegister', function () {
+    return view('errors.404');
+});
+Route::get('plogin', function () {
+    return view('errors.404');
+});
+Route::get('Pregister', function () {
+    return view('errors.404');
+});
+Route::get('admonPreferences', function () {
+    return view('errors.404');
+});

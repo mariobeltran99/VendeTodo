@@ -28,4 +28,44 @@ class UsuarioController extends Controller
         $arrayUser = usuario::find(1);
         return view('editUser', compact('arrayUser'));
     }
+    public function loginRegister(Request $request)
+    {
+        if ($this->existEmail($request->name)) {
+            return view('login', [
+                'email' => $request->name
+            ]);
+        } else {
+            return view('register', [
+                'email' => $request->name
+            ]);
+        }
+    }
+    private function existEmail($email)
+    {
+        $array = usuario::where('nombre_usuario', $email)->get();
+        if (count($array) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function plogin(Request $request)
+    {
+        //luego hago EL BAN -> Habilitar cuenta luego de
+        $array = usuario::where('nombre_usuario', $request->email)->where('clave', md5($request->passs))->get()->first();
+        if (!empty($array)) {
+            session([
+                'id' => $array->id,
+                'rol' => strtoupper($array->rol)
+            ]);
+            //return session('id') . " -> " . session('rol');
+            return redirect()->to('home/')->send();
+        } else {
+            return redirect()->to('login/')->send();
+        }
+    }
+    public function Pregister(Request $request)
+    {
+        return redirect()->to('preferences/')->send();
+    }
 }

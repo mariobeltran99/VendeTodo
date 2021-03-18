@@ -23,4 +23,12 @@ class CategoriaController extends Controller
     {
         return categoria::all();
     }
+    public function admonPreferences(Request $request)
+    {
+        session([
+            'id' => 5,
+            'rol' => "U"
+        ]);
+        return redirect()->to('home/')->send();
+    }
 }
