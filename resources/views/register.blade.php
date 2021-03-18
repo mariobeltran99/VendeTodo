@@ -8,7 +8,7 @@
                     <label class="font-semibold text-sm text-gray-600 pb-1 block">Nombre Completo</label>
                     <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
                     <label class="font-semibold text-sm text-gray-600 pb-1 block">Correo Electrónico</label>
-                    <input type="email" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+                    <input type="email" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" value="{{ $email ?? '' }}" />
                     <label class="font-semibold text-sm text-gray-600 pb-1 block">Contraseña</label>
                     <input type="password" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
                     <label class="font-semibold text-sm text-gray-600 pb-1 block">Departamento</label>
@@ -24,7 +24,9 @@
                 </div>
                 <div class="p-5">
                     <div class="grid grid-cols-1 gap-1">
-                        <button type="button" class="transition duration-200 border p-2 border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block">Iniciar Sesión</button>
+                        <a href="login">
+                            <button type="button" class="transition duration-200 border p-2 border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block">Iniciar Sesión</button>
+                        </a>
                     </div>
                 </div>
                 <div class="py-5">
@@ -38,12 +40,14 @@
             <div class="py-5">
                 <div class="grid grid-cols-2 gap-1">
                     <div class="text-center sm:text-left whitespace-nowrap">
-                        <button class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-black hover:bg-gray-200 focus:outline-none focus:bg-gray-100 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 inline-block align-text-top">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                            </svg>
-                            <span class="inline-block ml-1 text-1lg">Regresar</span>
-                        </button>
+                        <a href="/">
+                            <button class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-black hover:bg-gray-200 focus:outline-none focus:bg-gray-100 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 inline-block align-text-top">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                </svg>
+                                <span class="inline-block ml-1 text-1lg">Regresar</span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

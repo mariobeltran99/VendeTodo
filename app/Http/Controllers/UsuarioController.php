@@ -30,12 +30,15 @@ class UsuarioController extends Controller
     }
     public function loginRegister(Request $request)
     {
-        $array = usuario::where('nombre_usuario', $request->name);
-        if (count($array) == 0) {
-            return "Registro";
+        $array = usuario::where('nombre_usuario', $request->name)->get();
+        if (count($array) != 0) {
+            return view('login', [
+                'email' => $request->name
+            ]);
         } else {
-            return "login";
+            return view('register', [
+                'email' => $request->name
+            ]);
         }
-        return 0;
     }
 }
