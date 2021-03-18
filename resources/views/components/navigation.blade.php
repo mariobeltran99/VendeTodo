@@ -29,6 +29,12 @@
                         </div>
                     </li>
                     <li class="block relative">
+                        <a href="/home" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
+                            <span class="mr-3 text-xl"> <i class="fas fa-home"></i> </span>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="block relative">
                         <a href="" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
                             <span class="mr-3 text-xl"> <i class="fas fa-money-bill-wave"></i> </span>
                             <span>Vender</span>
@@ -105,6 +111,20 @@
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                    </li>
+                    <li class="block relative">
+                        <a class="flex items-center h-10 leading-10 px-4 rounded no-underline hover:no-underline transition-colors duration-100 mx-1">
+                            <span>{{$name}}</span>
+                        </a>
+                    </li>
+                    <li class="block relative">
+                        <div class="rounded-lg">
+                            <a class="flex items-center h-10 leading-10 px-4 rounded no-underline hover:no-underline transition-colors duration-100 mx-1">
+                                <div class="photo-wrapper">
+                                        <img class="rounded-full mx-auto" height="45px" width="45px" src="{{asset('img/profileDefault.png')}}">
+                                </div>
+                            </a>
                         </div>
                     </li>
                 </ul>

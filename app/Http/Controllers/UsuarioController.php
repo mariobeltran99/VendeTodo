@@ -25,7 +25,7 @@ class UsuarioController extends Controller
     }
     public function editUser()
     {
-        $arrayUser = usuario::find(1);
+        $arrayUser = usuario::find(session('id'));
         return view('editUser', compact('arrayUser'));
     }
     public function loginRegister(Request $request)
@@ -56,9 +56,10 @@ class UsuarioController extends Controller
         if (!empty($array)) {
             session([
                 'id' => $array->id,
+                'nombre' => $array->nombre,
+                'foto' => $array->foto,
                 'rol' => strtoupper($array->rol)
             ]);
-            //return session('id') . " -> " . session('rol');
             return redirect()->to('home/')->send();
         } else {
             return redirect()->to('login/')->send();
