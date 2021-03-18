@@ -42,4 +42,4 @@ Route::get('conductingBusiness', [VisitasController::class, 'conducting']);
 Route::get('cars', [VisitasController::class, 'cars']);
 Route::get('platformUsage', [VisitasController::class, 'platform']);
 Route::get('classified', [VisitasController::class, 'classified']);
-
+Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name('user.loginregister');
