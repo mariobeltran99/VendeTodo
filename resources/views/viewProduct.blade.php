@@ -11,7 +11,7 @@
             <h3>{{ $product->precio }}</h3>
             <h3>{{ $product->descripcion }}</h3>
             @foreach($product->imagen as $img)
-            <img src={{asset('img/' . $img->foto)}}></img>
+            <img src={{asset('storage/' . $img->foto)}}></img>
            
             @endforeach
         </div>
