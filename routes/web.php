@@ -32,7 +32,7 @@ Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
 Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
-Route::get('viewProduct', [ProductoController::class, 'viewProduct']);
+Route::get('viewProduct/{id}', [ProductoController::class, 'viewProduct']);
 Route::get('/user/edit', [UsuarioController::class, 'editUser']);
 Route::get('/user/phone', [TelefonoController::class, 'editPhone']);
 Route::get('/admin/viewsPage', [VisitasController::class, 'viewsPage']);
