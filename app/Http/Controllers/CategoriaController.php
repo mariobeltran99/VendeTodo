@@ -16,10 +16,19 @@ class CategoriaController extends Controller
     }
     public function admon()
     {
-        return view('adminCategoria');
+        $listCategorie = $this->verTodo();
+        return view('adminCategoria', compact('listCategorie'));
     }
     private function verTodo()
     {
         return categoria::all();
+    }
+    public function admonPreferences(Request $request)
+    {
+        session([
+            'id' => 5,
+            'rol' => "U"
+        ]);
+        return redirect()->to('home/')->send();
     }
 }

@@ -2,6 +2,12 @@
 
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\DenunciaController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\TelefonoController;
+use App\Http\Controllers\VisitasController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Vistas
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
 Route::get('preferences', [UsuarioController::class, 'preferences']);
@@ -26,6 +32,40 @@ Route::get('home', [UsuarioController::class, 'home']);
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
+<<<<<<< HEAD
 Route::get('myArticules', [UsuarioController::class, 'myArticules']);
 Route::get('sell', [UsuarioController::class, 'sell']);
 Route::get('cover', [UsuarioController::class, 'cover']);
+=======
+Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
+Route::get('viewProduct/{id}', [ProductoController::class, 'viewProduct']);
+Route::get('/user/edit', [UsuarioController::class, 'editUser']);
+Route::get('/user/phone', [TelefonoController::class, 'editPhone']);
+Route::get('/admin/viewsPage', [VisitasController::class, 'viewsPage']);
+Route::get('/serviceConditions', [VisitasController::class, 'conditions']);
+Route::get('privacyPolicy', [VisitasController::class, 'privacy']);
+Route::get('conductingBusiness', [VisitasController::class, 'conducting']);
+Route::get('cars', [VisitasController::class, 'cars']);
+Route::get('platformUsage', [VisitasController::class, 'platform']);
+Route::get('classified', [VisitasController::class, 'classified']);
+
+//programacion
+Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name('user.loginregister');
+Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.plogin');
+Route::post('Pregister/', [UsuarioController::class, 'Pregister'])->name('user.Pregister');
+Route::post('admonPreferences/', [CategoriaController::class, 'admonPreferences'])->name('categorie.admonPreferences');
+
+//PRoteccion de rutas de programacion
+Route::get('loginRegister', function () {
+    return view('errors.404');
+});
+Route::get('plogin', function () {
+    return view('errors.404');
+});
+Route::get('Pregister', function () {
+    return view('errors.404');
+});
+Route::get('admonPreferences', function () {
+    return view('errors.404');
+});
+>>>>>>> 6f33be35d1ae0b0272e680dc3bb5400332205e0d

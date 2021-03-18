@@ -11,10 +11,12 @@ class Navigation extends Component
      *
      * @return void
      */
-    public $flag;
-    public function __construct($flagR)
+    public $flag, $name, $imgsrc;
+    public function __construct($flagR, $named,$url)
     {
         $this->flag = $flagR;
+        $this->name = $named;
+        $this->imgsrc = $url;
     }
 
     /**

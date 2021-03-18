@@ -4,10 +4,9 @@
         <div class="p-10 xs:p-0 mx-auto md:w-full mt-4 md:max-w-6xl">
             <div class="bg-white shadow w-full divide-y divide-gray-200 mt-4 p-2">
                 <div class="px-5 py-7 mt-5">
-                    <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" maxlength="100" placeholder="Nombre de la categoria:" />
-                    <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" maxlength="100" placeholder="Descripcion: " />
+                    <input type="number" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" min="60000000" max="79999999" placeholder="Numero de telefono:" />
                     <button type="submit" class="transition duration-200 bg-blue-500 mb-3 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
-                        <span class="inline-block mr-2 mt-2 mb-2"><i class="fas fa-list"></i> Ingresar categoria</span>
+                        <span class="inline-block mr-2 mt-2 mb-2"><i class="fas fa-phone"></i> Ingresar numero telefonico</span>
                     </button>
                 </div>
             </div>
@@ -30,11 +29,7 @@
                         <tr>
                             <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Nombre de la categoria
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Descripción de la categoria
+                                Número de telefono
                             </th>
                             <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -43,23 +38,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($listCategorie as $categorie)
+                        @foreach ($listPhone as $phone)
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                    {{ $categorie->nombre }}
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    {{ $categorie->descripcion }}
+                                    {{ $phone->telefono }}
                                 </p>
                             </td>
                             <form>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">
                                         <div class="inline-block mr-2 mt-2">
-                                            <button type="submit" class="focus:outline-none text-white text-sm py-2 px-3 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg" name="{{ $categorie->id }}">
+                                            <button type="submit" class="focus:outline-none text-white text-sm py-2 px-3 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg" name="{{ $phone->id }}">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                         </div>
