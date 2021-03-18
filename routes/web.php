@@ -36,4 +36,10 @@ Route::get('viewProduct', [ProductoController::class, 'viewProduct']);
 Route::get('/user/edit', [UsuarioController::class, 'editUser']);
 Route::get('/user/phone', [TelefonoController::class, 'editPhone']);
 Route::get('/admin/viewsPage', [VisitasController::class, 'viewsPage']);
+Route::get('/serviceConditions', [VisitasController::class, 'conditions']);
+Route::get('privacyPolicy', [VisitasController::class, 'privacy']);
+Route::get('conductingBusiness', [VisitasController::class, 'conducting']);
+Route::get('cars', [VisitasController::class, 'cars']);
+Route::get('platformUsage', [VisitasController::class, 'platform']);
+Route::get('classified', [VisitasController::class, 'classified']);
 
