@@ -45,4 +45,6 @@ Route::get('classified', [VisitasController::class, 'classified']);
 
 //programacion
 Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name('user.loginregister');
-Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.loginregister');
+Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.plogin');
+Route::post('Pregister/', [UsuarioController::class, 'Pregister'])->name('user.Pregister');
+Route::post('admonPreferences/', [CategoriaController::class, 'admonPreferences'])->name('categorie.admonPreferences');

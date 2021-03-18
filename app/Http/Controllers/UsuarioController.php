@@ -64,4 +64,8 @@ class UsuarioController extends Controller
             return redirect()->to('login/')->send();
         }
     }
+    public function Pregister(Request $request)
+    {
+        return redirect()->to('preferences/')->send();
+    }
 }
