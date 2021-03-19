@@ -14,12 +14,29 @@
                 <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                     <x-card-product
                         titleR="Computadora"
-                        priceR="40.00"
+                        priceR="1040.00"
                         categoryR="Informática"
-                        imgsrcR="https://www.diariodigital.com.do/wp-content/uploads/2020/09/computadora.jpg"
+                        imgsrcR="https://consumer-img.huawei.com/content/dam/huawei-cbg-site/latam/latin/mkt/pdp/plp-banner/x-pro.png"
+                    />
+                </div>
+                <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+                    <x-card-product
+                        titleR="Computadora"
+                        priceR="1240.00"
+                        categoryR="Informática"
+                        imgsrcR="https://www.profesionalreview.com/wp-content/uploads/2020/02/MSI-Modern-15-Nuevo-portatil-con-GeForce-MX330-e-Intel-Comet-Lake_2.jpg"
+                    />
+                </div>
+                <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+                    <x-card-product
+                        titleR="Computadora"
+                        priceR="2240.00"
+                        categoryR="Informática"
+                        imgsrcR="https://www.muycomputer.com/wp-content/uploads/2020/01/ASUS_ZenBook_Duo.jpg"
                     />
                 </div>
                 <!-- fin del div -->
             </div>
         </div>
+    <br>
 @endsection
