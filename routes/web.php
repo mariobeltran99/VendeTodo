@@ -27,10 +27,14 @@ Route::get('/', function () {
 //Vistas
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
+Route::get('preferences', [UsuarioController::class, 'preferences']);
 Route::get('home', [UsuarioController::class, 'home']);
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
+Route::get('myArticules', [UsuarioController::class, 'myArticules']);
+Route::get('sell', [UsuarioController::class, 'sell']);
+Route::get('cover', [UsuarioController::class, 'cover']);
 Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
 Route::get('viewProduct/{id}', [ProductoController::class, 'viewProduct']);
 Route::get('/user/edit', [UsuarioController::class, 'editUser']);

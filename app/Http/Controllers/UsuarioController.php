@@ -15,14 +15,30 @@ class UsuarioController extends Controller
     {
         return view('register');
     }
-    public function home()
+    public function preferences()
     {
-        return view('home');
+        return view('preferences');
+    
     }
     public function viewUsers()
     {
         return view('adminUsers');
     }
+    public function home(){
+        return view('home');
+    }
+    public function myArticules()
+    {
+        return view('myArticules');
+    }
+    public function sell(){
+        return view('sell');
+    }
+    public function cover(){
+        return view('cover');
+    }
+  
+
     public function editUser()
     {
         $arrayUser = usuario::find(session('id'));
