@@ -1,4 +1,4 @@
-@extends('homeLayout')
+@extends('..layouts.homeLayout')
 @section('container')
         <br>
         <h1>{{ $product->nombre }}</h1>

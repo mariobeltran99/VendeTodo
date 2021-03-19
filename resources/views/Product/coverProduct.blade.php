@@ -1,4 +1,4 @@
-@extends('layout')
-@section('content')
+@extends('..layouts.homeLayout')
+@section('container')
 
 @endsection

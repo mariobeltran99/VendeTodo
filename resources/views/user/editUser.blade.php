@@ -1,4 +1,4 @@
-@extends('homeLayout')
+@extends('..layouts.homeLayout')
 @section('container')
     <form enctype="multipart/form-data" class="mt-6">
         <div class="p-10 xs:p-0 mx-auto md:w-full mt-4 md:max-w-6xl">
