@@ -32,8 +32,8 @@ Route::get('home', [UsuarioController::class, 'home']);
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
-Route::get('myArticules', [UsuarioController::class, 'myArticules']);
-Route::get('sell', [UsuarioController::class, 'sell']);
+Route::get('myArticules', [ProductoController::class, 'myArticules']);
+Route::get('sell', [ProductoController::class, 'sell']);
 Route::get('cover', [UsuarioController::class, 'cover']);
 Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
 Route::get('viewProduct/{id}', [ProductoController::class, 'viewProduct']);
@@ -46,6 +46,9 @@ Route::get('conductingBusiness', [VisitasController::class, 'conducting']);
 Route::get('cars', [VisitasController::class, 'cars']);
 Route::get('platformUsage', [VisitasController::class, 'platform']);
 Route::get('classified', [VisitasController::class, 'classified']);
+Route::get('/admin/editCategory', [CategoriaController::class, 'editCategory']);
+Route::get('/user/editPhone', [TelefonoController::class, 'modifiedPhone']);
+Route::get('editProduct', [ProductoController::class, 'editProduct']);
 
 //programacion
 Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name('user.loginregister');

@@ -29,14 +29,6 @@ class UsuarioController extends Controller
     {
         return view('home');
     }
-    public function myArticules()
-    {
-        return view('myArticules');
-    }
-    public function sell()
-    {
-        return view('sell');
-    }
     public function cover()
     {
         return view('cover');
