@@ -9,13 +9,13 @@ class UsuarioController extends Controller
 {
     public function login()
     {
-        return view('login');
+        return view('user.login');
     }
     public function register()
-    { //modifique
+    {
         $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
         $listd = json_decode($listd);
-        return view('register', compact('listd'));
+        return view('user.register', compact('listd'));
     }
     public function viewUsers()
     {

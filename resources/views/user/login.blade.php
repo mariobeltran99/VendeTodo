@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('..layouts.layout')
 @section('content')
 <div class="min-h-screen bg-gray-400 flex flex-col justify-center sm:py-12">
     <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md mt-4">
