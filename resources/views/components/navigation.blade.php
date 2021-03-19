@@ -1,3 +1,6 @@
+@php
+    $holi = "img/".session('foto');
+@endphp
 <div>
     <style>
         .inset-l-full {
@@ -35,14 +38,14 @@
                         </a>
                     </li>
                     <li class="block relative">
-                        <a href="" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
+                        <a href="/sell" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
                             <span class="mr-3 text-xl"> <i class="fas fa-money-bill-wave"></i> </span>
                             <span>Vender</span>
                         </a>
                     </li>
-                    <li class="block relative" x-data="{showChildren:false}" @click.away="showChildren=false">
-                        <a href="" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100" @click.prevent="showChildren=!showChildren">
-                            <span class="mr-3 text-xl"> <i class="fas fa-shopping-basket"></i></span>
+                    <li class="block relative">
+                        <a href="/myArticules" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
+                            <span class="mr-3 text-xl"> <i class="fas fa-shopping-basket"></i></span> </span>
                             <span>Mis artículos</span>
                         </a>
                     </li>
@@ -122,7 +125,7 @@
                         <div class="rounded-lg">
                             <a class="flex items-center h-10 leading-10 px-4 rounded no-underline hover:no-underline transition-colors duration-100 mx-1">
                                 <div class="photo-wrapper">
-                                        <img class="rounded-full mx-auto" height="45px" width="45px" src="{{asset('img/profileDefault.png')}}">
+                                        <img class="rounded-full mx-auto" height="45px" width="45px" src="{{ asset($holi) }}">
                                 </div>
                             </a>
                         </div>
