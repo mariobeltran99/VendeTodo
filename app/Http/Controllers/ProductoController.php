@@ -22,4 +22,15 @@ class ProductoController extends Controller
             'product' => $product
         ]);
     }
+    public function myArticules()
+    {
+        return view('myArticules');
+    }
+    public function sell()
+    {
+        return view('sell');
+    }
+    public function editProduct(){
+        return view('editProduct');
+    }
 }

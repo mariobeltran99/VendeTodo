@@ -31,4 +31,7 @@ class CategoriaController extends Controller
         ]);
         return redirect()->to('home/')->send();
     }
+    public function editCategory(){
+        return view('editCategory');
+    }
 }

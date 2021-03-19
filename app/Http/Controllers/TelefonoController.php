@@ -16,4 +16,7 @@ class TelefonoController extends Controller
     {
         return telefono::all();
     }
+    public  function modifiedPhone(){
+        return view('modifiedPhone');
+    }
 }
