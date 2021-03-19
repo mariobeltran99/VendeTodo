@@ -25,38 +25,46 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Vistas
+//Vistas sin loguearse
 Route::get('login', [UsuarioController::class, 'login']);
 Route::get('register', [UsuarioController::class, 'register']);
-Route::get('preferences', [UsuarioController::class, 'preferences']);
-Route::get('home', [UsuarioController::class, 'home']);
-Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
-Route::get('/admin/category', [CategoriaController::class, 'admon']);
+
+//Vistas con logueo
+Route::get('home', [UsuarioController::class, 'home']);
+Route::get('viewProduct/{id}', [ProductoController::class, 'viewProduct']);
 Route::get('myArticules', [ProductoController::class, 'myArticules']);
 Route::get('sell', [ProductoController::class, 'sell']);
-Route::get('cover', [UsuarioController::class, 'cover']);
-Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
-Route::get('viewProduct/{id}', [ProductoController::class, 'viewProduct']);
 Route::get('/user/edit', [UsuarioController::class, 'editUser']);
 Route::get('/user/phone', [TelefonoController::class, 'editPhone']);
+
+//Rutas DEL CPANEL
+Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
+Route::get('/admin/category', [CategoriaController::class, 'admon']);
+Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
 Route::get('/admin/viewsPage', [VisitasController::class, 'viewsPage']);
-Route::get('/serviceConditions', [VisitasController::class, 'conditions']);
+
+//VistasExtras despues de algun formulario
+Route::get('/admin/editCategory', [CategoriaController::class, 'editCategory']); //Formulario luego de la ruta /admin/category
+Route::get('/user/editPhone', [TelefonoController::class, 'modifiedPhone']); //Formulario luego de la ruta /user/phone'
+Route::get('editProduct', [ProductoController::class, 'editProduct']); //Formulario luego de la ruta /myArticules
+Route::get('cover', [UsuarioController::class, 'cover']); //Seleccionar imagen /sell
+
+//Vistas->FOOTER
+Route::get('serviceConditions', [VisitasController::class, 'conditions']);
 Route::get('privacyPolicy', [VisitasController::class, 'privacy']);
 Route::get('conductingBusiness', [VisitasController::class, 'conducting']);
 Route::get('cars', [VisitasController::class, 'cars']);
 Route::get('platformUsage', [VisitasController::class, 'platform']);
 Route::get('classified', [VisitasController::class, 'classified']);
-Route::get('/admin/editCategory', [CategoriaController::class, 'editCategory']);
-Route::get('/user/editPhone', [TelefonoController::class, 'modifiedPhone']);
-Route::get('editProduct', [ProductoController::class, 'editProduct']);
 
 //programacion
-Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name('user.loginregister');
-Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.plogin');
-Route::post('Pregister/', [UsuarioController::class, 'Pregister'])->name('user.Pregister');
-Route::post('admonPreferences/', [CategoriaController::class, 'admonPreferences'])->name('categorie.admonPreferences');
+Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name('user.loginregister'); //Proceso del primer input en la vista welcome
+Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.plogin'); //Proceso de login
+Route::post('Pregister/', [UsuarioController::class, 'Pregister'])->name('user.Pregister'); //Proceso del registro
+Route::post('admonPreferences/', [CategoriaController::class, 'admonPreferences'])->name('categorie.admonPreferences'); //Proceso de las preferencias (crear cookies)
 
-//PRoteccion de rutas de programacion
+//Proteccion de rutas de programacion
 Route::get('loginRegister', function () {
     return view('errors.404');
 });
