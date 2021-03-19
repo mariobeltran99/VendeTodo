@@ -2,7 +2,7 @@
     .img-box {
         display: block;
         max-width:300px;
-        max-height:150px;
+        max-height:180px;
         width: auto;
         height: auto;
     }
@@ -12,10 +12,10 @@
         <div class="w-96 m-auto ">
             <div class=" grid grid-cols-3 grid-rows-7 grid-flow-row overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                 <div class="col-span-3 row-span-4 p-1 m-1 content-around">
-                    <a href="#">
+                    <a href="{{$url}}">
                         <img
                             src="{{$imgsrc}}"
-                            class="rounded-xl img-box mx-auto"
+                            class="rounded-t-xl img-box"
                         />
                     </a>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="col-span-3 row-span-1">
                     <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                         <p class="text-lg text-justify">
-                            <a class="no-underline hover:underline  text-black" href="#">
+                            <a class="no-underline hover:underline  text-black" href="{{$url}}">
                                 {{$title}}
                             </a>
                         </p>
