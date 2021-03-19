@@ -15,7 +15,6 @@ class UsuarioController extends Controller
     {
         return view('register');
     }
-<<<<<<< HEAD
     public function preferences()
     {
         return view('preferences');
@@ -37,16 +36,9 @@ class UsuarioController extends Controller
     }
     public function cover(){
         return view('cover');
-=======
-    public function home()
-    {
-        return view('home');
     }
-    public function viewUsers()
-    {
-        return view('adminUsers');
->>>>>>> 6f33be35d1ae0b0272e680dc3bb5400332205e0d
-    }
+  
+
     public function editUser()
     {
         $arrayUser = usuario::find(session('id'));

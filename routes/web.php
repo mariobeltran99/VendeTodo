@@ -32,11 +32,9 @@ Route::get('home', [UsuarioController::class, 'home']);
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
-<<<<<<< HEAD
 Route::get('myArticules', [UsuarioController::class, 'myArticules']);
 Route::get('sell', [UsuarioController::class, 'sell']);
 Route::get('cover', [UsuarioController::class, 'cover']);
-=======
 Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
 Route::get('viewProduct/{id}', [ProductoController::class, 'viewProduct']);
 Route::get('/user/edit', [UsuarioController::class, 'editUser']);
@@ -68,4 +66,3 @@ Route::get('Pregister', function () {
 Route::get('admonPreferences', function () {
     return view('errors.404');
 });
->>>>>>> 6f33be35d1ae0b0272e680dc3bb5400332205e0d

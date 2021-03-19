@@ -1,32 +1,29 @@
-@extends('layout')
-@section('content')
-<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
-<style>
-  .dark{color:rgba(55, 65, 81,1);}
-  body{background:white !important; }
-</style>
+@extends('homelayout')
+@section('container')
 
-<div class="holder place-self-stretch"> 
- <!-- Funcion foreach articulo segun usuario -->
-  <div class="card border w-96 hover:shadow-none relative flex flex-col mx-auto shadow-lg m-5">
-  <div class="profile w-full flex m-3 ml-4 text-white">
-    <!-- Imagen -->  <img class="w-28 h-28 p-1 bg-white rounded-full" src="https://images.pexels.com/photos/61100/pexels-photo-61100.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb" alt=""/>
-      <div class="title mt-4 ml-3 font-bold flex flex-col">
-        <div class="add font-semibold text-sm italic dark">Articulo</div>
-        <!--  add [dark] class for bright background -->
-        <div class="add font-semibold text-sm italic dark">Precio</div>
+
+<!-- item card -->
+<div class="md:flex sm shadow-lg  mx-6 md:mx-auto my-40 max-w-lg md:max-w-2xl h-64 mt-6">
+   <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag">
+   <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
+      <div class="flex items-center">
+         <h2 class="text-xl text-gray-800 font-medium mr-auto">Your Travel Buddy</h2>
+         <p class="text-gray-800 font-semibold tracking-tighter">
+            only
+            <i class="text-gray-600 line-through">60$</i>
+            48$
+         </p>
       </div>
-    </div>
-    <div class="buttons flex absolute bottom-0 font-bold right-0 text-xs text-gray-500 space-x-0 my-3.5 mr-3">
-      <div class="add border rounded-l-2xl rounded-r-sm border-gray-300 p-1 px-4 cursor-pointer hover:bg-gray-700 hover:text-white">Editar
-      <img src="https://img.icons8.com/android/24/000000/pencil.png"/>
+      <p class="text-sm text-gray-700 mt-4">
+         Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
+      </p>
+      <div class="flex items-center justify-end mt-4 top-auto">
+         <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Delete</button>
+         <button class=" bg-gray-200 text-blue-600 px-2 py-2 rounded-md mr-2">Edit</button>
+         <button class=" bg-blue-600 text-gray-200 px-2 py-2 rounded-md ">Publish</button>
       </div>
-      <div class="add border rounded-r-2xl rounded-l-sm border-gray-300 p-1 px-4 cursor-pointer hover:bg-gray-700 hover:text-white">Eliminar
-      <img src="https://img.icons8.com/android/24/000000/delete.png"/></div> 
-    </div>
-  </div>
-  <!-- card end -->
+   </div>
+</div>
+
+
 @endsection

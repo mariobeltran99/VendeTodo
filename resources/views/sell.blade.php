@@ -1,19 +1,10 @@
-@extends('layout')
-@section('content')
+@extends('homelayout')
+@section('container')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
 <script src="https://kit.fontawesome.com/1e268974cb.js" crossorigin="anonymous"></script>
     <script src="assets/js/helpers.js"></script>
     <script src="assets/js/whatsapp.js"></script>
-<style>
-.form{
-    width: 70%;
-    margin: 0:auto;
-padding-left:15cm; 
-items-align:center;
-}
-.boton{}
-</style>
 <script>
 function dataFileDnD() {
     return {
@@ -77,9 +68,8 @@ function dataFileDnD() {
     };
 }
 </script>
-<div class=" items-center justify-center form">
-        <form id="form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div><img src="" width="40%"></div>
+<div class=" items-center justify-center form  px-6 w-40 ">
+        <form id="form" class="bg-white shadow-md rounded px-6 mt-6  mb-6">
             <br>
             <h1 class="block text-gray-700 font-bold mb-2 text-x5 text-center">VENDE TODO</h1>
             <br>
@@ -105,9 +95,8 @@ function dataFileDnD() {
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                     Descripcion del producto
                 </label>
-                <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="desc" id="desc" type="desc" placeholder="" required>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" id="message1" type="text" placeholder="Escríbe tu respuesta Aquí..."required></textarea>
+
             </div>
 
 
@@ -116,7 +105,9 @@ function dataFileDnD() {
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                     Numero de contactos
                 </label>
-                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" id="message1" type="text" placeholder="Escríbe tu respuesta Aquí..."required></textarea>
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" id="message1" type="text" placeholder="Escríbe tu respuesta Aquí..."required>
+                    <option>1234-5678</option>
+                </select>
             </div>
 
             <div class="mb-4">
@@ -145,6 +136,7 @@ function dataFileDnD() {
         </div>
     </div>
 <!-- DROPZONE -->
+<div class="mb-4">
     <template x-if="files.length > 0">
         <div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-6" @drop.prevent="drop($event)"
             @dragover.prevent="$event.dataTransfer.dropEffect = 'move'">
@@ -201,25 +193,22 @@ function dataFileDnD() {
 </div>
 </div>
 <!-- DROPZONE -->
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <script src="https://unpkg.com/create-file-list"></script>
-
+</div>
                 
             </div>
-
-            
-            <div class="flex items-center justify-between ">
-                <button id="submit"
-                    class="flex items-center justify-between bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            <div class="mb-4">
+            <button id="submit"
+                    class="mx-auto 
+                     bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit">
                     <i  ></i> Siguiente
                 </button>
-            </div>
+          
+           
+             </div>
 
-            <div class="mb-4">
-
- 
-        </form>
+       
         
     </div>
 @endsection
