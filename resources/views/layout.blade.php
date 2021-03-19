@@ -24,7 +24,7 @@
                             <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Condiciones del Servicio</a></span>
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Anuncios Clasificados</span>
+                            <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Politica sobre clasificados</span>
                             <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">Clasificados</a></span>
                             <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Automóviles</a></span>
                         </div>

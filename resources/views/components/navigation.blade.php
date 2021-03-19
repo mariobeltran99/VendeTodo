@@ -21,11 +21,11 @@
                             <div class="bg-white rounded w-full relative z-10 py-1">
                                 <ul class="list-reset">
                                     <!-- repetir este li para mostrar-->
-                                    <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
+                                    <!-- <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
                                         <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                             <span class="flex-1">Autos</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <!-- end li -->
                                 </ul>
                             </div>
