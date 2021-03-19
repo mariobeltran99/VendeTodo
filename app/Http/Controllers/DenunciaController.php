@@ -10,7 +10,7 @@ class DenunciaController extends Controller
     public function admon()
     {
         $listdenuncia = denuncia::where('vista', 0)->get();
-        return view('adminDenuncias', compact('listdenuncia'));
+        return view('cpanel.adminDenuncias', compact('listdenuncia'));
     }
 
     private function verTodo()
