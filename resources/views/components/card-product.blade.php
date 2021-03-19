@@ -15,7 +15,7 @@
                     <a href="{{$url}}">
                         <img
                             src="{{$imgsrc}}"
-                            class="rounded-t-xl img-box"
+                            class="rounded-xl img-box mx-auto"
                         />
                     </a>
                 </div>
