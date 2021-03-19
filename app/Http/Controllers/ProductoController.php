@@ -18,19 +18,20 @@ class ProductoController extends Controller
         $imagen = imagen::where('id_producto', $product->id)->get();
         $product->telefono = $telefono;
         $product->imagen = $imagen;
-        return view('viewProduct', [
+        return view('Product.viewProduct', [
             'product' => $product
         ]);
     }
     public function myArticules()
     {
-        return view('myArticules');
+        return view('Product.myArticules');
     }
     public function sell()
     {
-        return view('sell');
+        return view('Product.sell');
     }
-    public function editProduct(){
-        return view('editProduct');
+    public function editProduct()
+    {
+        return view('Product.editProduct');
     }
 }

@@ -19,21 +19,21 @@ class UsuarioController extends Controller
     }
     public function viewUsers()
     {
-        return view('adminUsers');
+        return view('cpanel.adminUsers');
     }
     public function home()
     {
-        return view('home');
+        return view('user.home');
     }
     public function cover()
     {
-        return view('cover');
+        return view('Product.cover');
     }
     public function editUser()
     {
         if (!empty(session('id'))) {
             $arrayUser = usuario::find(session('id'));
-            return view('editUser', compact('arrayUser'));
+            return view('user.editUser', compact('arrayUser'));
         } else {
             return redirect()->to('login/')->send();
         }
@@ -41,13 +41,13 @@ class UsuarioController extends Controller
     public function loginRegister(Request $request)
     {
         if ($this->existEmail($request->name)) {
-            return view('login', [
+            return view('user.login', [
                 'email' => $request->name
             ]);
         } else {
             $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
             $listd = json_decode($listd);
-            return view('register', [
+            return view('user.register', [
                 'email' => $request->name,
                 'listd' => $listd
             ]);
