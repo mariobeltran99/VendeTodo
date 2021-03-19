@@ -11,13 +11,14 @@ class CardProduct extends Component
      *
      * @return void
      */
-    public $title, $price, $category, $imgsrc;
-    public function __construct($titleR, $priceR, $categoryR, $imgsrcR)
+    public $title, $price, $category, $imgsrc, $url;
+    public function __construct($titleR, $priceR, $categoryR, $imgsrcR, $urlR)
     {
         $this->title = $titleR;
         $this->price = $priceR;
         $this->category = $categoryR;
         $this->imgsrc = $imgsrcR;
+        $this->url = $urlR;
     }
 
     /**

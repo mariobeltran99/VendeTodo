@@ -95,8 +95,8 @@
         <script>
             function app() {
                 return {
-                    chartData: [112, 10, 110, 134, 101, 80, 50, 100, 200,67,90,160],
-                    labels: ['Ene', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dic'],
+                    chartData: [112, 10, 110, 134, 101],
+                    labels: ['Ene', 'Feb', 'Mar', 'Apr', 'May'],
 
                     tooltipContent: '',
                     tooltipOpen: false,
