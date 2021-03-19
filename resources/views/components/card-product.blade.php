@@ -1,13 +1,21 @@
+<style>
+    .img-box {
+        display: block;
+        max-width:300px;
+        max-height:150px;
+        width: auto;
+        height: auto;
+    }
+</style>
 <div>
     <div class="p-56">
         <div class="w-96 m-auto ">
             <div class=" grid grid-cols-3 grid-rows-7 grid-flow-row overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                <div class="col-span-3 row-span-4 p-1 m-1">
+                <div class="col-span-3 row-span-4 p-1 m-1 content-around">
                     <a href="#">
                         <img
                             src="{{$imgsrc}}"
-                            alt="Placeholder"
-                            class="rounded-t-xl object-cover h-48 w-full"
+                            class="rounded-xl img-box mx-auto"
                         />
                     </a>
                 </div>
