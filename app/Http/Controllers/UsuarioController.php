@@ -9,55 +9,45 @@ class UsuarioController extends Controller
 {
     public function login()
     {
-        return view('login');
+        return view('user.login');
     }
     public function register()
-    { //modifique
+    {
         $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
         $listd = json_decode($listd);
-        return view('register', compact('listd'));
-    }
-    public function preferences()
-    {
-        return view('preferences');
+        return view('user.register', compact('listd'));
     }
     public function viewUsers()
     {
-        return view('adminUsers');
+        return view('cpanel.adminUsers');
     }
     public function home()
     {
-        return view('home');
-    }
-    public function myArticules()
-    {
-        return view('myArticules');
-    }
-    public function sell()
-    {
-        return view('sell');
+        return view('user.home');
     }
     public function cover()
     {
-        return view('cover');
+        return view('Product.cover');
     }
-
-
     public function editUser()
     {
-        $arrayUser = usuario::find(session('id'));
-        return view('editUser', compact('arrayUser'));
+        if (!empty(session('id'))) {
+            $arrayUser = usuario::find(session('id'));
+            return view('user.editUser', compact('arrayUser'));
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
     public function loginRegister(Request $request)
     {
         if ($this->existEmail($request->name)) {
-            return view('login', [
+            return view('user.login', [
                 'email' => $request->name
             ]);
         } else {
             $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
             $listd = json_decode($listd);
-            return view('register', [
+            return view('user.register', [
                 'email' => $request->name,
                 'listd' => $listd
             ]);

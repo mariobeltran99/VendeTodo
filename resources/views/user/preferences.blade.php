@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('..layouts.layout')
 @section('content')
     <div class="bg-gray-400">
         <h1 class="text-4xl text-black text-center sm:text-2xl font-bold p-6">Elija sus categorías de preferencia.</h1>

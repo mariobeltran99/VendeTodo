@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('..layouts.layout')
 @section('content')
     <div class="p-6 bg-gray-900 text-white">
         <h1 class="text-3xl font-bold text-center">Política de Privacidad</h1>

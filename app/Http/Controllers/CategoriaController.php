@@ -12,12 +12,12 @@ class CategoriaController extends Controller
     public function preferences()
     {
         $listCategorie = $this->verTodo();
-        return view('preferences', compact('listCategorie'));
+        return view('user.preferences', compact('listCategorie'));
     }
     public function admon()
     {
         $listCategorie = $this->verTodo();
-        return view('adminCategoria', compact('listCategorie'));
+        return view('cpanel.adminCategoria', compact('listCategorie'));
     }
     private function verTodo()
     {
@@ -30,5 +30,9 @@ class CategoriaController extends Controller
             'rol' => "U"
         ]);
         return redirect()->to('home/')->send();
+    }
+    public function editCategory()
+    {
+        return view('cpanel.editCategory');
     }
 }

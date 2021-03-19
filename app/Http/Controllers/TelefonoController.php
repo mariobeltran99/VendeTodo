@@ -10,10 +10,14 @@ class TelefonoController extends Controller
     public function editPhone()
     {
         $listPhone = telefono::where('id_usuario', session('id'))->get();
-        return view('editPhone', compact('listPhone'));
+        return view('user.editPhone', compact('listPhone'));
     }
     private function verTodo()
     {
         return telefono::all();
+    }
+    public  function modifiedPhone()
+    {
+        return view('user.modifiedPhone');
     }
 }

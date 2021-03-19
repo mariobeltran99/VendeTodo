@@ -10,17 +10,28 @@ use App\Models\imagen;
 
 class ProductoController extends Controller
 {
-    public function viewProduct($id){
+    public function viewProduct($id)
+    {
         $product = producto::where('id', $id)->get()->first();
-        $telefono=telefono::where('id', $product->id_telefono)->get()->first();
-        $product->user=usuario::where('id',$telefono->id_usuario)->get()->first();
-        $imagen=imagen::where('id_producto',$product->id)->get();
-        $product->telefono=$telefono;
-        $product->imagen=$imagen;
-     
-        return view('viewProduct', [
+        $telefono = telefono::where('id', $product->id_telefono)->get()->first();
+        $product->user = usuario::where('id', $telefono->id_usuario)->get()->first();
+        $imagen = imagen::where('id_producto', $product->id)->get();
+        $product->telefono = $telefono;
+        $product->imagen = $imagen;
+        return view('Product.viewProduct', [
             'product' => $product
         ]);
     }
+    public function myArticules()
+    {
+        return view('Product.myArticules');
+    }
+    public function sell()
+    {
+        return view('Product.sell');
+    }
+    public function editProduct()
+    {
+        return view('Product.editProduct');
+    }
 }
-
