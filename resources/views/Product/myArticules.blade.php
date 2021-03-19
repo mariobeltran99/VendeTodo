@@ -1,4 +1,4 @@
-@extends('homeLayout')
+@extends('..layouts.homeLayout')
 @section('container')
 
     <div class="container my-12 mt-6 mx-auto px-4 md:px-12">

@@ -1,4 +1,4 @@
-@extends('homeLayout')
+@extends('..layouts.homeLayout')
 @section('container')
     <style>
         [x-cloak] {
