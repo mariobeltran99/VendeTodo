@@ -41,12 +41,14 @@ class UsuarioController extends Controller
     {
         return view('cover');
     }
-
-
     public function editUser()
     {
-        $arrayUser = usuario::find(session('id'));
-        return view('editUser', compact('arrayUser'));
+        if (!empty(session('id'))) {
+            $arrayUser = usuario::find(session('id'));
+            return view('editUser', compact('arrayUser'));
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
     public function loginRegister(Request $request)
     {

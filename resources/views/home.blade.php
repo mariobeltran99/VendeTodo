@@ -17,6 +17,7 @@
                         priceR="1040.00"
                         categoryR="Informática"
                         imgsrcR="https://consumer-img.huawei.com/content/dam/huawei-cbg-site/latam/latin/mkt/pdp/plp-banner/x-pro.png"
+                        urlR="/viewProduct/1"
                     />
                 </div>
                 <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
@@ -25,6 +26,7 @@
                         priceR="1240.00"
                         categoryR="Informática"
                         imgsrcR="https://www.profesionalreview.com/wp-content/uploads/2020/02/MSI-Modern-15-Nuevo-portatil-con-GeForce-MX330-e-Intel-Comet-Lake_2.jpg"
+                        urlR="/viewProduct/2"
                     />
                 </div>
                 <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
@@ -33,6 +35,7 @@
                         priceR="2240.00"
                         categoryR="Informática"
                         imgsrcR="https://www.muycomputer.com/wp-content/uploads/2020/01/ASUS_ZenBook_Duo.jpg"
+                        urlR="/viewProduct/3"
                     />
                 </div>
                 <!-- fin del div -->
