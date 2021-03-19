@@ -12,32 +12,36 @@ class UsuarioController extends Controller
         return view('login');
     }
     public function register()
-    {
-        return view('register');
+    { //modifique
+        $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
+        $listd = json_decode($listd);
+        return view('register', compact('listd'));
     }
     public function preferences()
     {
         return view('preferences');
-    
     }
     public function viewUsers()
     {
         return view('adminUsers');
     }
-    public function home(){
+    public function home()
+    {
         return view('home');
     }
     public function myArticules()
     {
         return view('myArticules');
     }
-    public function sell(){
+    public function sell()
+    {
         return view('sell');
     }
-    public function cover(){
+    public function cover()
+    {
         return view('cover');
     }
-  
+
 
     public function editUser()
     {
@@ -51,8 +55,11 @@ class UsuarioController extends Controller
                 'email' => $request->name
             ]);
         } else {
+            $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
+            $listd = json_decode($listd);
             return view('register', [
-                'email' => $request->name
+                'email' => $request->name,
+                'listd' => $listd
             ]);
         }
     }
