@@ -17,10 +17,6 @@ class UsuarioController extends Controller
         $listd = json_decode($listd);
         return view('register', compact('listd'));
     }
-    public function preferences()
-    {
-        return view('preferences');
-    }
     public function viewUsers()
     {
         return view('adminUsers');
