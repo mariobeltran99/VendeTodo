@@ -13,7 +13,7 @@
             @else
                 @foreach($product->imagen as $img)
                     <img src="https://www.usps.com/ecp/asset/images/O_BOX4-L0.jpg">
-                  <!--   <img src= asset('storage/' . $img->foto)}}> -->
+                    <!--   <img src= asset('storage/' . $img->foto)}}> -->
                     <br>
                 @endforeach
             @endif
