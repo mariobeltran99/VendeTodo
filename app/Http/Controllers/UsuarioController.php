@@ -27,7 +27,7 @@ class UsuarioController extends Controller
     }
     public function cover()
     {
-        return view('Product.cover');
+        return view('Product.coverProduct');
     }
     public function editUser()
     {
