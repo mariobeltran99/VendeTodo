@@ -17,12 +17,16 @@
                 <p id="job" class="text-gray-800 mt-2">Ut eni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <div class="mt-5">
                     <div class="inline-block mr-1 mt-2">
-                        <button type="button" class="focus:outline-none text-white text-sm py-2 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">
-                            <i class="fas fa-info-circle"></i></button>
+                        <a href="/viewProduct/{{ $id }}">
+                            <button type="button" class="focus:outline-none text-white text-sm py-2 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">
+                                <i class="fas fa-info-circle"></i></button>
+                        </a>
                     </div>
                     <div class="inline-block mr-1 mt-2">
-                        <button type="button" class="focus:outline-none text-white text-sm py-2 px-5 rounded-md bg-gray-500 hover:bg-gray-600 hover:shadow-lg">
-                            <i class="fas fa-edit"></i></button>
+                        <a href="/editProduct/{{ $id }}">
+                            <button type="button" class="focus:outline-none text-white text-sm py-2 px-5 rounded-md bg-gray-500 hover:bg-gray-600 hover:shadow-lg">
+                                <i class="fas fa-edit"></i></button>
+                        </a>
                     </div>
                     <div class="inline-block mr-1 mt-2">
                         <button type="button" class="focus:outline-none text-white text-sm py-2 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg">

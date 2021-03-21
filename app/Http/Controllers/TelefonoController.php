@@ -16,8 +16,9 @@ class TelefonoController extends Controller
     {
         return telefono::all();
     }
-    public  function modifiedPhone()
+    public  function modifiedPhone($id)
     {
-        return view('user.modifiedPhone');
+        $telefono = telefono::find($id);
+        return view('user.modifiedPhone', compact('telefono'));
     }
 }

@@ -31,8 +31,9 @@ class CategoriaController extends Controller
         ]);
         return redirect()->to('home/')->send();
     }
-    public function editCategory()
+    public function editCategory($id)
     {
-        return view('cpanel.editCategory');
+        $listCategorie = categoria::find($id);
+        return view('cpanel.editCategory', compact('listCategorie'));
     }
 }

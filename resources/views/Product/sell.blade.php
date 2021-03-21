@@ -104,7 +104,13 @@ function dataFileDnD() {
                     Elegir tú número de teléfono para contactarte
                 </label>
                 <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" id="message1" type="text" placeholder="--Seleccione--"required>
-                    <option>1234-5678</option>
+                    @if (count($listt) != 0)
+                        @foreach ($listt as $item)
+                            <option value="{{ $item->id }}">{{ $item->telefono }}</option>
+                        @endforeach
+                    @else
+                        <option value="">No hay numeros</option>
+                    @endif
                 </select>
             </div>
             <div class="mb-4">

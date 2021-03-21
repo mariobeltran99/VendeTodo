@@ -82,7 +82,7 @@
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="name" id="name" type="text" placeholder="Ingresa el título del producto" required>
+                    name="name" id="name" type="text" placeholder="Ingresa el título del producto" required value="{{ $listp->nombre }}">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
@@ -90,13 +90,13 @@
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="price" id="price" type="number" min="0.01" max="100000.00" step="0.05" placeholder="Ingresa el precio del producto" required>
+                    name="price" id="price" type="number" min="0.01" max="100000.00" step="0.05" placeholder="Ingresa el precio del producto" required value="{{ $listp->precio }}">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                     Descripcion del producto
                 </label>
-                <textarea class="shadow resize-none appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" id="message1" type="text" placeholder="Escríbe su descripción" required></textarea>
+                <textarea class="shadow resize-none appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" id="message1" type="text" placeholder="Escríbe su descripción" required >{{ $listp->descripcion }}</textarea>
             </div>
             <div class="mb-4">
 
@@ -104,7 +104,13 @@
                     Elegir tú número de teléfono para contactarte
                 </label>
                 <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message1" id="message1" type="text" placeholder="--Seleccione--"required>
-                    <option>1234-5678</option>
+                    @if (count($listt) != 0)
+                        @foreach ($listt as $item)
+                            <option value="{{ $item->id }}">{{ $item->telefono }}</option>
+                        @endforeach
+                    @else
+                        <option value="">No hay numeros</option>
+                    @endif
                 </select>
             </div>
             <div class="mb-4">
