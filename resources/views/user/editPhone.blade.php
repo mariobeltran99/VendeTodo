@@ -49,9 +49,11 @@
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">
                                         <div class="inline-block mr-2 mt-2">
-                                            <button type="submit" class="focus:outline-none text-white text-sm py-2 px-3 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg" name="{{ $phone->id }}">
+                                            <a href="/user/editPhone/{{ $phone->id }}">
+                                                <button type="button" class="focus:outline-none text-white text-sm py-2 px-3 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">
                                                 <i class="fas fa-edit"></i>
                                             </button>
+                                            </a>
                                         </div>
                                     </p>
                                 </td>
