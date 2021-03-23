@@ -21,18 +21,18 @@
                     <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
                         <div class="flex flex-col">
                             <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Condiciones de Uso</span>
-                            <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Políticas de Privacidad</a></span>
-                            <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Condiciones del Servicio</a></span>
+                            <span class="my-2"><a href="/privacyPolicy" class="text-blue-700  text-md hover:text-blue-500">Políticas de Privacidad</a></span>
+                            <span class="my-2"><a href="/serviceConditions" class="text-blue-700  text-md hover:text-blue-500">Condiciones del Servicio</a></span>
                         </div>
                         <div class="flex flex-col">
                             <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Politica sobre clasificados</span>
-                            <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">Clasificados</a></span>
-                            <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Automóviles</a></span>
+                            <span class="my-2"><a href="/classified" class="text-blue-700 text-md hover:text-blue-500">Clasificados</a></span>
+                            <span class="my-2"><a href="/cars" class="text-blue-700  text-md hover:text-blue-500">Automóviles</a></span>
                         </div>
                         <div class="flex flex-col">
                             <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Ayuda Técnica</span>
-                            <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Uso de la plataforma</a></span>
-                            <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Realización de negocios</a></span>
+                            <span class="my-2"><a href="/platformUsage" class="text-blue-700  text-md hover:text-blue-500">Uso de la plataforma</a></span>
+                            <span class="my-2"><a href="/conductingBusiness" class="text-blue-700  text-md hover:text-blue-500">Realización de negocios</a></span>
                         </div>
                     </div>
                 </div>
