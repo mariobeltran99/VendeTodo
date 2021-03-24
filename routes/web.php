@@ -26,8 +26,8 @@ Route::get('/', function () {
 });
 //Vistas
 //Vistas sin loguearse
-Route::get('login', [UsuarioController::class, 'login']);
-Route::get('register', [UsuarioController::class, 'register']);
+Route::get('login', [UsuarioController::class, 'login'])->name('login');
+Route::get('register', [UsuarioController::class, 'register'])->name('register');
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 
 //Vistas con logueo
