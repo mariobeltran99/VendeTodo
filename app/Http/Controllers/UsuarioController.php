@@ -41,16 +41,9 @@ class UsuarioController extends Controller
     public function loginRegister(Request $request)
     {
         if ($this->existEmail($request->name)) {
-            return view('user.login', [
-                'email' => $request->name
-            ]);
+            return redirect()->route('login')->with('email', $request->name); //, ['email' => $request->name]
         } else {
-            $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
-            $listd = json_decode($listd);
-            return view('user.register', [
-                'email' => $request->name,
-                'listd' => $listd
-            ]);
+            return redirect()->route('register')->with('email', $request->name); //, ['email' => $request->name]
         }
     }
     private function existEmail($email)
@@ -75,7 +68,7 @@ class UsuarioController extends Controller
             ]);
             return redirect()->to('home/')->send();
         } else {
-            return redirect()->to('login/')->send();
+            return redirect()->to('login/')->send()->with('alertLogin', true);
         }
     }
     public function Pregister(Request $request)

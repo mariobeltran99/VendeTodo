@@ -9,6 +9,7 @@ use App\Models\producto;
 use App\Models\usuario;
 use App\Models\telefono;
 use App\Models\imagen;
+use App\Models\valoracion;
 
 class ProductoController extends Controller
 {
@@ -18,8 +19,13 @@ class ProductoController extends Controller
         $telefono = telefono::where('id', $product->id_telefono)->get()->first();
         $product->user = usuario::where('id', $telefono->id_usuario)->get()->first();
         $imagen = imagen::where('id_producto', $product->id)->get();
+        $valoracion = valoracion::where('id_producto', $product->id)->get();
+        $average = valoracion::where('id_producto', $id)->pluck('estrella')->avg();
         $product->telefono = $telefono;
         $product->imagen = $imagen;
+        $product->valoracion = $valoracion;
+        $product->average = $average;
+
         return view('Product.viewProduct', [
             'product' => $product
         ]);
