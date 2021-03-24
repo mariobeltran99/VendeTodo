@@ -1,3 +1,6 @@
+@php
+    $holi = "img/".session('foto');
+@endphp
 <div>
     <style>
         .inset-l-full {
@@ -18,25 +21,31 @@
                             <div class="bg-white rounded w-full relative z-10 py-1">
                                 <ul class="list-reset">
                                     <!-- repetir este li para mostrar-->
-                                    <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
+                                    <!-- <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
                                         <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                             <span class="flex-1">Autos</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <!-- end li -->
                                 </ul>
                             </div>
                         </div>
                     </li>
                     <li class="block relative">
-                        <a href="#" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
+                        <a href="/home" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
+                            <span class="mr-3 text-xl"> <i class="fas fa-home"></i> </span>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="block relative">
+                        <a href="/sell" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
                             <span class="mr-3 text-xl"> <i class="fas fa-money-bill-wave"></i> </span>
                             <span>Vender</span>
                         </a>
                     </li>
-                    <li class="block relative" x-data="{showChildren:false}" @click.away="showChildren=false">
-                        <a href="#" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100" @click.prevent="showChildren=!showChildren">
-                            <span class="mr-3 text-xl"> <i class="fas fa-shopping-basket"></i></span>
+                    <li class="block relative">
+                        <a href="/myArticules" class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
+                            <span class="mr-3 text-xl"> <i class="fas fa-shopping-basket"></i></span> </span>
                             <span>Mis artículos</span>
                         </a>
                     </li>
@@ -53,22 +62,22 @@
                             <div class="bg-white rounded w-full relative z-10 py-1">
                                 <ul class="list-reset">
                                     <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
+                                        <a href="/admin/viewUsers" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                             <span class="flex-1">Administración de Usuarios</span>
                                         </a>
                                     </li>
                                     <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
+                                        <a href="/admin/category" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                             <span class="flex-1">Administración de Categorías</span>
                                         </a>
                                     </li>
                                     <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
+                                        <a href="/admin/complaint" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                             <span class="flex-1">Administración de Denuncias</span>
                                         </a>
                                     </li>
                                     <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
+                                        <a href="/admin/viewsPage" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                             <span class="flex-1">Tráfico del sitio web</span>
                                         </a>
                                     </li>
@@ -89,22 +98,36 @@
                             <div class="bg-white rounded w-full relative z-10 py-1">
                                 <ul class="list-reset">
                                     <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
+                                        <a href="/user/edit" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                             <span class="flex-1">Editar Perfil</span>
                                         </a>
                                     </li>
                                     <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
+                                        <a href="/user/phone" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                             <span class="flex-1">Editar Teléfonos</span>
                                         </a>
                                     </li>
                                     <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
+                                        <a href="/" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer"> <!-- RECORDAR DESTRUIR SESSION -->
                                             <span class="flex-1">Desconectar</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                    </li>
+                    <li class="block relative">
+                        <a class="flex items-center h-10 leading-10 px-4 rounded no-underline hover:no-underline transition-colors duration-100 mx-1">
+                            <span>{{$name}}</span>
+                        </a>
+                    </li>
+                    <li class="block relative">
+                        <div class="rounded-lg">
+                            <a class="flex items-center h-10 leading-10 px-4 rounded no-underline hover:no-underline transition-colors duration-100 mx-1">
+                                <div class="photo-wrapper">
+                                        <img class="rounded-full mx-auto" height="45px" width="45px" src="{{ asset($holi) }}">
+                                </div>
+                            </a>
                         </div>
                     </li>
                 </ul>

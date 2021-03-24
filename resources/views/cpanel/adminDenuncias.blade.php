@@ -1,4 +1,4 @@
-@extends('homeLayout')
+@extends('..layouts.homeLayout')
 @section('container')
     <div class="container mx-auto mt-6">
         <div class="py-8">

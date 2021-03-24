@@ -9,12 +9,16 @@ class TelefonoController extends Controller
 {
     public function editPhone()
     {
-        $listPhone = telefono::where('id_usuario', '7')->get(); //RECORDAR CAMBIAR ESTO BRO
-        //validar si va solo 1
-        return view('editPhone', compact('listPhone'));
+        $listPhone = telefono::where('id_usuario', session('id'))->get();
+        return view('user.editPhone', compact('listPhone'));
     }
     private function verTodo()
     {
         return telefono::all();
+    }
+    public  function modifiedPhone($id)
+    {
+        $telefono = telefono::find($id);
+        return view('user.modifiedPhone', compact('telefono'));
     }
 }

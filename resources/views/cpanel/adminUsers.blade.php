@@ -1,4 +1,4 @@
-@extends('homeLayout')
+@extends('..layouts.homeLayout')
 @section('container')
         <div class="w-full mx-auto rounded-xl shadow-lg mt-6 p-10 text-gray-800 relative overflow-hidden max-w-3xl">
             <div class="relative mt-1">

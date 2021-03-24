@@ -25,9 +25,9 @@ class usuarioFactory extends Factory
             'nombre_usuario' => $this->faker->unique()->safeEmail,
             'nombre' => $this->faker->name,
             'clave' => $this->faker->md5,
-            'foto' => $this->faker->randomElement(['imagen1.jpg','imagen2.jpg','imagen3.png','imagen4.png']),
+            'foto' => $this->faker->randomElement(['profileDefault.png']),
             'activo' => $this->faker->boolean,
-            'rol' => $this->faker->randomElement(['a','u']),
+            'rol' => $this->faker->randomElement(['a', 'u']),
             'departamento' => $this->faker->randomElement(['San Salvador', 'San Vicente', 'La Paz', 'San Miguel']),
             'token' => $this->faker->regexify('[A-Za-z0-9]{100}')
         ];

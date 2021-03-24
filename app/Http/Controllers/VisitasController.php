@@ -7,33 +7,39 @@ use App\Models\visita;
 
 class VisitasController extends Controller
 {
-    public function viewsPage(){
+    public function viewsPage()
+    {
 
-        return view('viewsPage');
+        return view('cpanel.viewsPage');
     }
-    public function privacy(){
+    public function privacy()
+    {
 
-        return view('privacyPolicy');
+        return view('footer.privacyPolicy');
     }
-    public function conditions(){
+    public function conditions()
+    {
 
-        return view('serviceConditions');
+        return view('footer.serviceConditions');
     }
-    public function cars(){
+    public function cars()
+    {
 
-        return view('cars');
+        return view('footer.cars');
     }
-    public function classified(){
+    public function classified()
+    {
 
-        return view('classified');
+        return view('footer.classified');
     }
-    public function platform(){
+    public function platform()
+    {
 
-        return view('platformUsage');
+        return view('footer.platformUsage');
     }
-    public function conducting(){
+    public function conducting()
+    {
 
-        return view('conductingBusiness');
+        return view('footer.conductingBusiness');
     }
-
 }

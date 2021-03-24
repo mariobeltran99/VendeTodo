@@ -1,8 +1,10 @@
-@extends('layout')
+@extends('..layouts.layout')
 @section('content')
     <div class="min-w-screen min-h-screen bg-gray-400 peeb-5 pt-20">
         <x-navigation
-            flagR="A"
+            flagR="{{ session('rol') }}"
+            named="{{ session('nombre') }}"
+            url="{{ session('foto') }}"
         />
         <main role="main">
             @yield('container')
