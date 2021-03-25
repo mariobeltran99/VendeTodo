@@ -21,16 +21,17 @@ class ProductoController extends Controller
         $imagen = imagen::where('id_producto', $product->id)->get();
         $valoracion = valoracion::where('id_producto', $product->id)->get();
         $average = valoracion::where('id_producto', $id)->pluck('estrella')->avg();
-        for($i=0;$i<count($product->valoraciones);$i++){
-            $product->valoracion[$i]->id_usuario;
-            $nombre = usuario::find($product->valoracion[$i]->id_usuario);
-            $product->valoracion[$i]->nombre = $usuario->nombre;
-        }
         $product->telefono = $telefono;
         $product->imagen = $imagen;
         $product->valoracion = $valoracion;
         $product->average = $average;
-        
+        for ($i = 0; $i < count($product->valoraciones); $i++) {
+            $product->valoracion[$i]->id_usuario;
+            $userr = usuario::find($product->valoracion[$i]->id_usuario);
+            $product->valoracion[$i]->nombre = $userr->nombre;
+        }
+
+
         return view('Product.viewProduct', [
             'product' => $product
         ]);
