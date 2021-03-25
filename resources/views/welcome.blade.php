@@ -34,7 +34,8 @@
     <div class="bg-gray-900">
         <div class="flex flex-wrap content-center justify-items-center">
             <div class="mx-auto p-5">
-                <h1 class="text-white text-xl">Una mejor manera de hacer negocios.</h1>
+                <h1 class="text-white text-xl">Historia.</h1>
+                <p class="text-white"> Un día, conversamos acerca de esta idea. Una página de Clasificados disponible para todos que tengan algo que alquilar, vender, una oferta de empleo o un servicio para ofrecer. Además desde esta página Web el usuario podrá administrar sus listados, colocar fotos y actualizar todos los detalles para conseguir contacto directo de compradores. Y es asi como nacimos, como una pequeña idea uqe se volvio realidad y ahora esta disponible para ti. </p>
             </div>
             <div class="py-5 mx-5">
                 <img class="bg-rest sm:img-fluid" src="{{asset('img/img1.jpg')}}">
@@ -46,6 +47,7 @@
             </div>
             <div class="mx-auto py-5">
                 <h1 class="text-white text-xl">Una mejor manera de hacer negocios.</h1>
+                <p class="text-white"> El equipo de Encuentra24.com esta conformado de la ideal combinación de expertos en publicidad, programación, marketing online, talento creativo con la energía para hacer cambiar una pequeña idea en un poderoso concepto que maximice el potencial de efectividad de nuestros clientes con comunicación actualizada, todos nuestros servicios son completamente gratis, lo que nos hace la mejor opcion!!!.  </p>
             </div>
         </div>
     </div>
