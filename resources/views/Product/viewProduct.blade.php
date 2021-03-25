@@ -111,7 +111,7 @@ width: 20%;
                 <div class="bg-white rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4">
                     <div class="flex flex-row justify-center mr-2">
                         <img alt="avatar" width="48" height="48" class="rounded-full w-10 h-10 mr-4 shadow-lg mb-4" src="https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png">
-                        <h3 class="text-purple-600 font-semibold text-lg text-center md:text-left ">{{ $val->id_usuario }}</h3>
+                        <h3 class="text-purple-600 font-semibold text-lg text-center md:text-left ">{{ $val->nombre }}</h3>
                         <div class="flex ml-3">
                               <span class="flex items-center">
                                 <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
