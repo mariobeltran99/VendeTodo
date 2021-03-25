@@ -1,3 +1,12 @@
+## Integrantes
+
+* Mario Josué Beltrán García
+* Fher Enrique Clímaco Escamilla
+* Erick Gilberto Aguilar Urquilla
+* Andrés Eduardo Molina Moz
+* Sergio Isidro Rosas Carrillo
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -27,16 +36,34 @@ IMPORTANTE
 
 Cambiar el nombre del archivo ".env.example" a ".env".
 
+Ejecutar el siguiente comando para generar la carpeta llamada "vendor".
 
-Luego ejecutar el siguiente comando para instalar y configurar tailwindCSS.
+
+```bash
+composer install
+```
+
+Luego ejecutar el siguiente comando para instalar y configurar TailwindCSS.
 
 ```bash
 npm install
 ```
-## Database
+### Generación de la base de datos
 
-Agregar las credenciales de la base de datos en el archivo llamado ".env"
-y correr -> php artisan migrate --seed
+Agregar las credenciales de la base de datos en el archivo llamado ".env" y crear la base de datos llamada "vendetodo".
+
+Luego ejecutar el comando para las migraciones y la generación de los datos con los factories de laravel.
+
+```bash
+php artisan migrate --seed
+```
+
+Y por último ejecutar el comando para todo el funcionamiento del proyecto
+
+```bash
+php artisan serve
+```
+
 ## Learning Laravel
 
 
