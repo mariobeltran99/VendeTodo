@@ -25,16 +25,15 @@ class ProductoController extends Controller
         $product->imagen = $imagen;
         $product->valoracion = $valoracion;
         $product->average = $average;
-        for ($i = 0; $i < count($product->valoraciones); $i++) {
+        for ($i = 0; $i < count($product->valoracion); $i++) {
             $product->valoracion[$i]->id_usuario;
             $userr = usuario::find($product->valoracion[$i]->id_usuario);
             $product->valoracion[$i]->nombre = $userr->nombre;
         }
-
-
         return view('Product.viewProduct', [
             'product' => $product
         ]);
+       // return count($product->valoracion);
     }
     public function myArticules()
     {
