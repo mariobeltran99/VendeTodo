@@ -26,8 +26,8 @@ Route::get('/', function () {
 });
 //Vistas
 //Vistas sin loguearse
-Route::get('login', [UsuarioController::class, 'login']);
-Route::get('register', [UsuarioController::class, 'register']);
+Route::get('login', [UsuarioController::class, 'login'])->name('login');
+Route::get('register', [UsuarioController::class, 'register'])->name('register');
 Route::get('preferences', [CategoriaController::class, 'preferences']);
 
 //Vistas con logueo
@@ -45,9 +45,9 @@ Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
 Route::get('/admin/viewsPage', [VisitasController::class, 'viewsPage']);
 
 //VistasExtras despues de algun formulario
-Route::get('/admin/editCategory', [CategoriaController::class, 'editCategory']); //Formulario luego de la ruta /admin/category
-Route::get('/user/editPhone', [TelefonoController::class, 'modifiedPhone']); //Formulario luego de la ruta /user/phone'
-Route::get('editProduct', [ProductoController::class, 'editProduct']); //Formulario luego de la ruta /myArticules
+Route::get('/admin/editCategory/{id}', [CategoriaController::class, 'editCategory']); //Formulario luego de la ruta /admin/category
+Route::get('/user/editPhone/{id}', [TelefonoController::class, 'modifiedPhone']); //Formulario luego de la ruta /user/phone'
+Route::get('/editProduct/{id}', [ProductoController::class, 'editProduct']); //Formulario luego de la ruta /myArticules
 Route::get('cover', [UsuarioController::class, 'cover']); //Seleccionar imagen /sell
 
 //Vistas->FOOTER

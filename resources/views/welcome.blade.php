@@ -11,6 +11,10 @@
             height: 500px;
             width: 700px;
         }
+        .bg-small{
+            height: 300px;
+            width: 150px;
+        }
     </style>
     <div class="min-w-screen bg-img flex items-center justify-center px-5 py-5">
         <div class="w-full mx-auto bg-transparent" style="max-width: 300px">
@@ -32,20 +36,22 @@
         </div>
     </div>
     <div class="bg-gray-900">
-        <div class="flex flex-wrap content-center justify-items-center">
+        <div class="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
             <div class="mx-auto p-5">
-                <h1 class="text-white text-xl">Una mejor manera de hacer negocios.</h1>
+                <h1 class="text-white text-4xl text-center mt-6">Historia.</h1>
+                <p class="text-white text-justify text-2xl mt-6"> Un día, conversamos acerca de esta idea. Una página de Clasificados disponible para todos que tengan algo que alquilar, vender, una oferta de empleo o un servicio para ofrecer. Además desde esta página Web el usuario podrá administrar sus listados, colocar fotos y actualizar todos los detalles para conseguir contacto directo de compradores. Y es asi como nacimos, como una pequeña idea que se volvió realidad y ahora esta disponible para ti. </p>
             </div>
-            <div class="py-5 mx-5">
-                <img class="bg-rest sm:img-fluid" src="{{asset('img/img1.jpg')}}">
+            <div class="p-5 m-auto">
+                <img class="xl:bg-rest lg:bg-rest md:bg-small sm:bg-small rounded-2xl shadow-2xl" src="{{asset('img/img1.jpg')}}">
             </div>
         </div>
-        <div class="flex flex-wrap content-center justify-items-center">
-            <div class="p-5">
-                <img class="bg-rest" src="{{ asset('img/img2.jpg') }}">
+        <div class="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+            <div class="p-5 m-auto">
+                <img class="xl:bg-rest lg:bg-rest md:bg-small sm:bg-small rounded-2xl shadow-2xl" src="{{ asset('img/img2.jpg') }}">
             </div>
-            <div class="mx-auto py-5">
-                <h1 class="text-white text-xl">Una mejor manera de hacer negocios.</h1>
+            <div class="mx-auto p-5">
+                <h1 class="text-white text-center text-4xl mt-6">Una mejor manera de hacer negocios.</h1>
+                <p class="text-white text-justify text-2xl mt-6"> El equipo de Vende Todo está conformado de la ideal combinación de expertos en publicidad, programación, marketing online, talento creativo con la energía para hacer cambiar una pequeña idea en un poderoso concepto que maximice el potencial de efectividad de nuestros clientes con comunicación actualizada, todos nuestros servicios son completamente gratis, lo que nos hace la mejor opción!!!.  </p>
             </div>
         </div>
     </div>

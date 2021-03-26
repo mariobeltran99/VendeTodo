@@ -10,7 +10,7 @@ class VisitasController extends Controller
     public function viewsPage()
     {
 
-        return view('viewsPage');
+        return view('cpanel.viewsPage');
     }
     public function privacy()
     {
