@@ -21,10 +21,11 @@ class usuarioFactory extends Factory
      */
     public function definition()
     {
+        $pass = md5("1234");
         return [
             'nombre_usuario' => $this->faker->unique()->safeEmail,
             'nombre' => $this->faker->name,
-            'clave' => $this->faker->md5,
+            'clave' => $pass,
             'foto' => $this->faker->randomElement(['profileDefault.png']),
             'activo' => $this->faker->boolean,
             'rol' => $this->faker->randomElement(['a', 'u']),

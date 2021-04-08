@@ -9,16 +9,26 @@ class TelefonoController extends Controller
 {
     public function editPhone()
     {
-        $listPhone = telefono::where('id_usuario', session('id'))->get();
-        return view('user.editPhone', compact('listPhone'));
+        if (!empty(session('id'))) {
+            $listPhone = telefono::where('id_usuario', session('id'))->get();
+            return view('user.editPhone', compact('listPhone'));
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
+
     private function verTodo()
     {
         return telefono::all();
     }
-    public  function modifiedPhone($id)
+
+    public function modifiedPhone($id)
     {
-        $telefono = telefono::find($id);
-        return view('user.modifiedPhone', compact('telefono'));
+        $telefono = telefono::where('id', $id)->where('id_usuario', session('id'))->get();
+        if (count($telefono)) {
+            return view('user.modifiedPhone', compact('telefono'));
+        } else {
+            return redirect()->to('/user/phone')->send();
+        }
     }
 }

@@ -33,7 +33,6 @@ class ProductoController extends Controller
         return view('Product.viewProduct', [
             'product' => $product
         ]);
-       // return count($product->valoracion);
     }
     public function myArticules()
     {
