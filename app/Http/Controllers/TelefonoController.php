@@ -24,7 +24,7 @@ class TelefonoController extends Controller
 
     public function modifiedPhone($id)
     {
-        $telefono = telefono::where('id', $id)->where('id_usuario', session('id'))->get();
+        $telefono = telefono::where('id', $id)->where('id_usuartio', session('id'))->get();
         if (count($telefono)) {
             return view('user.modifiedPhone', compact('telefono'));
         } else {
