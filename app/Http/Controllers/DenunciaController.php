@@ -9,8 +9,12 @@ class DenunciaController extends Controller
 {
     public function admon()
     {
-        $listdenuncia = denuncia::where('vista', 0)->get();
-        return view('cpanel.adminDenuncias', compact('listdenuncia'));
+        if (session('rol') == 'A') {
+            $listdenuncia = denuncia::where('vista', 0)->get();
+            return view('cpanel.adminDenuncias', compact('listdenuncia'));
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
 
     private function verTodo()

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-    //
     public function preferences()
     {
         $listCategorie = $this->verTodo();
@@ -16,8 +15,12 @@ class CategoriaController extends Controller
     }
     public function admon()
     {
-        $listCategorie = $this->verTodo();
-        return view('cpanel.adminCategoria', compact('listCategorie'));
+        if (session('rol') == 'A') {
+            $listCategorie = $this->verTodo();
+            return view('cpanel.adminCategoria', compact('listCategorie'));
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
     private function verTodo()
     {
@@ -33,7 +36,11 @@ class CategoriaController extends Controller
     }
     public function editCategory($id)
     {
-        $listCategorie = categoria::find($id);
-        return view('cpanel.editCategory', compact('listCategorie'));
+        if (session('rol') == 'A') {
+            $listCategorie = categoria::find($id);
+            return view('cpanel.editCategory', compact('listCategorie'));
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
 }

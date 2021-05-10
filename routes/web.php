@@ -37,6 +37,7 @@ Route::get('myArticules', [ProductoController::class, 'myArticules']);
 Route::get('sell', [ProductoController::class, 'sell']);
 Route::get('/user/edit', [UsuarioController::class, 'editUser']);
 Route::get('/user/phone', [TelefonoController::class, 'editPhone']);
+Route::get('/logout', [UsuarioController::class, 'cerrar_sesion']);
 
 //Rutas DEL CPANEL
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);

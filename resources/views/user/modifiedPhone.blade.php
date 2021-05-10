@@ -1,5 +1,8 @@
 @extends('..layouts.homeLayout')
 @section('container')
+    @php
+        $telefono = $telefono->first();
+    @endphp
     <form class="mt-6">
         <div class="p-10 xs:p-0 mx-auto md:w-full mt-4 md:max-w-6xl">
             <div class="bg-white shadow w-full divide-y divide-gray-200 mt-4 p-2">
