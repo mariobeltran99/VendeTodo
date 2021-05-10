@@ -108,7 +108,7 @@
                                         </a>
                                     </li>
                                     <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="/" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer"> <!-- RECORDAR DESTRUIR SESSION -->
+                                        <a href="/logout" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer"> <!-- RECORDAR DESTRUIR SESSION -->
                                             <span class="flex-1">Desconectar</span>
                                         </a>
                                     </li>

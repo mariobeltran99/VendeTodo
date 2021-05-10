@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\usuario;
+use Session;
 
 class UsuarioController extends Controller
 {
     public function login()
     {
-        return view('user.login');
+        //if (!empty(session('rol'))) {
+            return view('user.login');
+        /*} else {
+            return redirect()->to('home/')->send();
+        }*/
     }
     public function register()
     {
@@ -19,11 +24,19 @@ class UsuarioController extends Controller
     }
     public function viewUsers()
     {
-        return view('cpanel.adminUsers');
+        if (session('rol') == 'A') {
+            return view('cpanel.adminUsers');
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
     public function home()
     {
-        return view('user.home');
+        if (!empty(session('id'))) {
+            return view('user.home');
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
     public function cover()
     {
@@ -74,5 +87,9 @@ class UsuarioController extends Controller
     public function Pregister(Request $request)
     {
         return redirect()->to('preferences/')->send();
+    }
+    public function cerrar_sesion(){
+        Session::flush();
+        return redirect()->to('/');
     }
 }
