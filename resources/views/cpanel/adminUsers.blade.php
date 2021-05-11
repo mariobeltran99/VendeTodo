@@ -50,6 +50,10 @@
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Banear/Desbanear
                                 </th>
+                                <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Subir privilegios
+                                </th>
                             </tr>
                             </thead>
                             <tbody id="renderizado">
@@ -132,6 +136,17 @@
                                                 <button type="button" class="focus:outline-none text-white text-sm py-2 px-3 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg">
                                                     <i class="fas fa-minus-circle"></i>
                                                     <i class="fas fa-circle"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        </p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                        <div class="inline-block mr-2 mt-2">
+                                            <a href="/upgradeAdmin/{{$item->id}}">
+                                                <button type="button" class="focus:outline-none text-white text-sm py-2 px-3 rounded-md bg-yellow-500 hover:bg-yellow-600 hover:shadow-lg">
+                                                    <i class="fas fa-crown"></i>
                                                 </button>
                                             </a>
                                         </div>

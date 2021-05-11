@@ -198,6 +198,17 @@ class UsuarioController extends Controller
                         </div>
                     </p>
                 </td>
+                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p class="text-gray-900 whitespace-no-wrap">
+                        <div class="inline-block mr-2 mt-2">
+                            <a href="/upgradeAdmin/'.$item->id.'">
+                                <button type="button" class="focus:outline-none text-white text-sm py-2 px-3 rounded-md bg-yellow-500 hover:bg-red-600 hover:shadow-lg">
+                                    <i class="fas fa-crown"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </p>
+                </td>
             </tr> ';
             }
             return $salid;
@@ -252,6 +263,26 @@ class UsuarioController extends Controller
             $user->clave=md5("1234");
             $user->save();
             return redirect()->to('/admin/viewUsers')->send()->with('alertaNormal', 'Su registro se ha actualizado con exito');
+        } else {
+            return redirect()->to('home/')->send();
+        }
+    }
+    public function upgradeAdmin($id){
+        if (session('rol') == 'A') {
+            $siesadmin = usuario::find($id);
+            if ($siesadmin->rol != 'a') {
+                $baneos = baneo::where('id_usuario', $id)->get();
+                if (count($baneos) == 0) {
+                    $user = usuario::find($id);
+                    $user->rol = 'a';
+                    $user->save();
+                    return redirect()->to('/admin/viewUsers')->send()->with('alertaNormal', 'Su registro se ha actualizado con exito');
+                } else {
+                    return redirect()->to('/admin/viewUsers')->send()->with('alertaError', 'Tiene baneos');
+                }
+            }else{
+                return redirect()->to('/admin/viewUsers')->send()->with('alertaError', 'Ya es admin');
+            }
         } else {
             return redirect()->to('home/')->send();
         }

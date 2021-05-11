@@ -55,6 +55,7 @@ Route::get('renderUsuario/', [UsuarioController::class, 'renderUsuario']); //Pro
 Route::get('/baneo/{id}', [UsuarioController::class, 'baneoID']);
 Route::get('/activarDesactivar/{id}', [UsuarioController::class, 'activarDesactivar']);
 Route::get('/resetPass/{id}', [UsuarioController::class, 'resetPass']);
+Route::get('/upgradeAdmin/{id}', [UsuarioController::class, 'upgradeAdmin']);
 
 //Vistas->FOOTER
 Route::get('serviceConditions', [VisitasController::class, 'conditions']);
