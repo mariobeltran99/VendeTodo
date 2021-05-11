@@ -76,11 +76,6 @@
                                             <span class="flex-1">Administración de Denuncias</span>
                                         </a>
                                     </li>
-                                    <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="/admin/viewsPage" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
-                                            <span class="flex-1">Tráfico del sitio web</span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>

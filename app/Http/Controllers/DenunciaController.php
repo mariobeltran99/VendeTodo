@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\baneo;
+use App\Models\usuario;
 use Illuminate\Http\Request;
 use App\Models\denuncia;
 
@@ -27,10 +28,15 @@ class DenunciaController extends Controller
         $denuncia->vista=1;
         $denuncia->save();
         if ($request->baneado){
-            $baneo= new baneo();
-            $baneo->id_usuario=$denuncia->id_usuario_denunciado;
-            $baneo->save();
-            return redirect()->to('/admin/complaint')->send()->with('alertaError', 'Se ha baneado al usuario');
+            $seraadmin=usuario::find($denuncia->id_usuario_denunciado);
+            if ($seraadmin->rol != 'a') {
+                $baneo = new baneo();
+                $baneo->id_usuario = $denuncia->id_usuario_denunciado;
+                $baneo->save();
+                return redirect()->to('/admin/complaint')->send()->with('alertaError', 'Se ha baneado al usuario');
+            } else {
+                return redirect()->to('/admin/complaint')->send()->with('alertaError', 'Sin bans a los admins');
+            }
         }
         return redirect()->to('/admin/complaint')->send()->with('alertaNormal', 'La denuncia se ha archivado');
     }

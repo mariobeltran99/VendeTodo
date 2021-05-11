@@ -50,6 +50,11 @@ Route::get('/admin/editCategory/{id}', [CategoriaController::class, 'editCategor
 Route::get('/user/editPhone/{id}', [TelefonoController::class, 'modifiedPhone']); //Formulario luego de la ruta /user/phone'
 Route::get('/editProduct/{id}', [ProductoController::class, 'editProduct']); //Formulario luego de la ruta /myArticules
 Route::get('cover', [UsuarioController::class, 'cover']); //Seleccionar imagen /sell
+Route::get('renderUsuario/', [UsuarioController::class, 'renderUsuario']); //Proceso de login
+//cpanel despues del form
+Route::get('/baneo/{id}', [UsuarioController::class, 'baneoID']);
+Route::get('/activarDesactivar/{id}', [UsuarioController::class, 'activarDesactivar']);
+Route::get('/resetPass/{id}', [UsuarioController::class, 'resetPass']);
 
 //Vistas->FOOTER
 Route::get('serviceConditions', [VisitasController::class, 'conditions']);
