@@ -9,8 +9,11 @@ class VisitasController extends Controller
 {
     public function viewsPage()
     {
-
-        return view('cpanel.viewsPage');
+        if (session('rol') == 'A') {
+            return view('cpanel.viewsPage');
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
     public function privacy()
     {

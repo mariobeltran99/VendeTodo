@@ -37,6 +37,7 @@ Route::get('myArticules', [ProductoController::class, 'myArticules']);
 Route::get('sell', [ProductoController::class, 'sell']);
 Route::get('/user/edit', [UsuarioController::class, 'editUser']);
 Route::get('/user/phone', [TelefonoController::class, 'editPhone']);
+Route::get('/logout', [UsuarioController::class, 'cerrar_sesion']);
 
 //Rutas DEL CPANEL
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
@@ -63,6 +64,12 @@ Route::post('loginRegister/', [UsuarioController::class, 'loginRegister'])->name
 Route::post('plogin/', [UsuarioController::class, 'plogin'])->name('user.plogin'); //Proceso de login
 Route::post('Pregister/', [UsuarioController::class, 'Pregister'])->name('user.Pregister'); //Proceso del registro
 Route::post('admonPreferences/', [CategoriaController::class, 'admonPreferences'])->name('categorie.admonPreferences'); //Proceso de las preferencias (crear cookies)
+Route::post('ActualizarTelefono/', [TelefonoController::class, 'ActualizarTelefono'])->name('user.actualizarTelefono');
+Route::post('actualizarCategoria/', [CategoriaController::class, 'actualizarCategoria'])->name('admin.actualizarCategoria'); //Proceso de login
+Route::post('crearCategoria/', [CategoriaController::class, 'crearCategoria'])->name('admin.crearCategoria'); //Proceso de login
+Route::post('crearTelefono/', [TelefonoController::class, 'crearTelefono'])->name('user.crearTelefono'); //Proceso de login
+Route::post('procesarDenuncia/', [DenunciaController::class, 'procesarDenuncia'])->name('admin.procesarDenuncia'); //Proceso de login
+Route::post('admonUser/', [UsuarioController::class, 'admonUser'])->name('admin.admonUser'); //Proceso de login
 
 //Proteccion de rutas de programacion
 Route::get('loginRegister', function () {
@@ -75,5 +82,14 @@ Route::get('Pregister', function () {
     return view('errors.404');
 });
 Route::get('admonPreferences', function () {
+    return view('errors.404');
+});
+Route::get('ActualizarTelefono', function () {
+    return view('errors.404');
+});
+Route::get('actualizarCategoria', function () {
+    return view('errors.404');
+});
+Route::get('crearTelefono', function () {
     return view('errors.404');
 });

@@ -4,26 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\usuario;
+use Session;
 
 class UsuarioController extends Controller
 {
     public function login()
     {
-        return view('user.login');
+        if (empty(session('rol'))) {
+            return view('user.login');
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
     public function register()
     {
-        $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
-        $listd = json_decode($listd);
-        return view('user.register', compact('listd'));
+        if (empty(session('rol'))) {
+            $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
+            $listd = json_decode($listd);
+            return view('user.register', compact('listd'));
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
     public function viewUsers()
     {
-        return view('cpanel.adminUsers');
+        if (session('rol') == 'A') {
+            return view('cpanel.adminUsers');
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
     public function home()
     {
-        return view('user.home');
+        if (!empty(session('id'))) {
+            return view('user.home');
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
     public function cover()
     {
@@ -41,9 +58,9 @@ class UsuarioController extends Controller
     public function loginRegister(Request $request)
     {
         if ($this->existEmail($request->name)) {
-            return redirect()->route('login')->with('email', $request->name); //, ['email' => $request->name]
+            return redirect()->route('login')->with('email', $request->name);
         } else {
-            return redirect()->route('register')->with('email', $request->name); //, ['email' => $request->name]
+            return redirect()->route('register')->with('email', $request->name);
         }
     }
     private function existEmail($email)
@@ -57,7 +74,6 @@ class UsuarioController extends Controller
     }
     public function plogin(Request $request)
     {
-        //luego hago EL BAN -> Habilitar cuenta luego de
         $array = usuario::where('nombre_usuario', $request->email)->where('clave', md5($request->passs))->get()->first();
         if (!empty($array)) {
             session([
@@ -74,5 +90,13 @@ class UsuarioController extends Controller
     public function Pregister(Request $request)
     {
         return redirect()->to('preferences/')->send();
+    }
+    public function cerrar_sesion(){
+        Session::flush();
+        return redirect()->to('/');
+    }
+    public function admonUser(Request $request)
+    {
+
     }
 }
