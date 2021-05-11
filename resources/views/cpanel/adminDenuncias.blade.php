@@ -17,10 +17,6 @@
                             </th>
                             <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Ver capturas
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                 Negado
                             </th>
                             <th
@@ -45,15 +41,6 @@
                             <form method="POST" action="/procesarDenuncia" >
                                 @csrf
                                 <input type="hidden" name="_id" value="{{ $denuncia->id }}">
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        <div class="inline-block mr-2 mt-2">
-                                            <button type="submit" class="focus:outline-none text-white text-sm py-2 px-3 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg" name="{{ $denuncia->id }}">
-                                                <i class="fas fa-images"></i>
-                                            </button>
-                                        </div>
-                                    </p>
-                                </td>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">
                                         <div class="inline-block mr-2 mt-2">
