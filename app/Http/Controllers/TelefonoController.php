@@ -24,11 +24,15 @@ class TelefonoController extends Controller
 
     public function modifiedPhone($id)
     {
-        $telefono = telefono::where('id', $id)->where('id_usuartio', session('id'))->get();
-        if (count($telefono)) {
-            return view('user.modifiedPhone', compact('telefono'));
+        if (!empty(session('id'))) {
+            $telefono = telefono::where('id', $id)->where('id_usuario', session('id'))->get();
+            if (count($telefono)) {
+                return view('user.modifiedPhone', compact('telefono'));
+            } else {
+                return redirect()->to('/user/phone')->send();
+            }
         } else {
-            return redirect()->to('/user/phone')->send();
+            return redirect()->to('home/')->send();
         }
     }
 }

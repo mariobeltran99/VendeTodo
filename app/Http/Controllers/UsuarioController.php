@@ -10,17 +10,21 @@ class UsuarioController extends Controller
 {
     public function login()
     {
-        //if (!empty(session('rol'))) {
+        if (empty(session('rol'))) {
             return view('user.login');
-        /*} else {
+        } else {
             return redirect()->to('home/')->send();
-        }*/
+        }
     }
     public function register()
     {
-        $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
-        $listd = json_decode($listd);
-        return view('user.register', compact('listd'));
+        if (empty(session('rol'))) {
+            $listd = file_get_contents("http://my-json-server.typicode.com/joseolivares/elsalvador_states/deptos");
+            $listd = json_decode($listd);
+            return view('user.register', compact('listd'));
+        } else {
+            return redirect()->to('home/')->send();
+        }
     }
     public function viewUsers()
     {

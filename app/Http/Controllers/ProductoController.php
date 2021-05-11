@@ -36,18 +36,35 @@ class ProductoController extends Controller
     }
     public function myArticules()
     {
-        $list = DB::select("SELECT p.id as 'idp' FROM productos p INNER JOIN telefonos t ON t.id = p.id_telefono INNER JOIN usuarios u ON u.id = t.id_usuario WHERE u.id = " . session('id'));
-        return view('Product.myArticules', compact('list'));
+        if (!empty(session('id'))) {
+            $list = DB::select("SELECT p.id as 'idp' FROM productos p INNER JOIN telefonos t ON t.id = p.id_telefono INNER JOIN usuarios u ON u.id = t.id_usuario WHERE u.id = " . session('id'));
+            return view('Product.myArticules', compact('list'));
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
     public function sell()
     {
-        $listt = telefono::where('id_usuario', session('id'))->get();
-        return view('Product.sell', compact('listt'));
+        if (!empty(session('id'))) {
+            $listt = telefono::where('id_usuario', session('id'))->get();
+            return view('Product.sell', compact('listt'));
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
     public function editProduct($id)
     {
-        $listp = producto::find($id);
-        $listt = telefono::where('id_usuario', session('id'))->get();
-        return view('Product.editProduct', compact('listp', 'listt'));
+        if (!empty(session('id'))) {
+            $list = DB::select("SELECT p.id as 'idp' FROM productos p INNER JOIN telefonos t ON t.id = p.id_telefono INNER JOIN usuarios u ON u.id = t.id_usuario WHERE u.id = " . session('id') . " and p.id = " . $id);
+            if (count($list) != 0) {
+                $listp = producto::find($id);
+                $listt = telefono::where('id_usuario', session('id'))->get();
+                return view('Product.editProduct', compact('listp', 'listt'));
+            } else {
+                return redirect()->to('myArticules/')->send();
+            }
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
 }
