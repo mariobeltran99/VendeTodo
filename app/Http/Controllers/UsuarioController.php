@@ -95,4 +95,8 @@ class UsuarioController extends Controller
         Session::flush();
         return redirect()->to('/');
     }
+    public function admonUser(Request $request)
+    {
+
+    }
 }

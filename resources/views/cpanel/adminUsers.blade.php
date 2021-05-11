@@ -84,7 +84,7 @@
                                         San Salvador
                                     </p>
                                 </td>
-                                <form>
+                                <form method="POST" action="/admonUser">
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">
                                         <div class="inline-block mr-2 mt-2">
@@ -121,22 +121,6 @@
                             </tr>
                             </tbody>
                         </table>
-                        <div
-                            class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                        <span class="text-xs xs:text-sm text-gray-900">
-                            Página 1 de 4
-                        </span>
-                            <div class="inline-flex mt-2 xs:mt-0">
-                                <button
-                                    class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
-                                    Anterior
-                                </button>
-                                <button
-                                    class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
-                                    Siguiente
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -35,4 +35,26 @@ class TelefonoController extends Controller
             return redirect()->to('home/')->send();
         }
     }
+    public function ActualizarTelefono(Request $request)
+    {
+        if (count(telefono::where('telefono',$request->input('phoneChange'))->where('id','!=',$request->input('_id'))->get()) == 0) {
+            $telefono = telefono::findOrFail($request->input('_id'));
+            $telefono->telefono = $request->input('phoneChange');
+            $telefono->save();
+            return redirect()->to('/user/phone/')->send()->with('alertaNormal', 'Su registro se actualizo con exito');
+        } else {
+            return redirect()->to('/user/editPhone/'.$request->input("_id"))->send()->with('alertaError', 'Su registro tiene conflictos');
+        }
+    }
+    public function crearTelefono(Request $request){
+        if (count(telefono::where('telefono',$request->input('telefono'))->get()) == 0) {
+            $telefono = new telefono();
+            $telefono->telefono=$request->input('telefono');
+            $telefono->id_usuario=session('id');
+            $telefono->save();
+            return redirect()->to('/user/phone/')->send()->with('alertaNormal', 'Su registro se ha ingresado con exito');
+        } else {
+            return redirect()->to('/user/phone/')->send()->with('alertaError', 'Su registro tiene conflictos');
+        }
+    }
 }
