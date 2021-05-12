@@ -50,10 +50,6 @@ class UsuarioController extends Controller
             return redirect()->to('login/')->send();
         }
     }
-    public function cover()
-    {
-        return view('Product.coverProduct');
-    }
     public function editUser()
     {
         if (!empty(session('id'))) {
@@ -102,10 +98,6 @@ class UsuarioController extends Controller
     public function cerrar_sesion(){
         Session::flush();
         return redirect()->to('/');
-    }
-    public function admonUser(Request $request)
-    {
-        return 0;
     }
     public function renderUsuario(Request $request){
         if (session('rol') == 'A') {

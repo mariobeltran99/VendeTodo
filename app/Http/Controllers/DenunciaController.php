@@ -18,11 +18,28 @@ class DenunciaController extends Controller
             return redirect()->to('home/')->send();
         }
     }
-
-    private function verTodo()
+    public function createDenuncia($id)
     {
-        return denuncia::all();
+        if (session('id')) {
+            return view('user.createDenuncia', compact('id'));
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
+    public function crearDenuncia(Request $request)
+    {
+        if (session('id')) {
+            $denunn = new denuncia();
+            $denunn->id_usuario_denunciado =$request->input("_id");
+            $denunn->motivo=$request->descripcion;
+            $denunn->vista=0;
+            $denunn->save();
+            return redirect()->to('/myArticules')->send()->with('alertaNormal', 'Su denuncia a sido interpuesta');
+        } else {
+            return redirect()->to('home/')->send();
+        }
+    }
+
     public function procesarDenuncia(Request $request){
         $denuncia = denuncia::find($request->input('_id'));
         $denuncia->vista=1;
