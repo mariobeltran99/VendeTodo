@@ -73,6 +73,8 @@ Route::post('admonPreferences/', [CategoriaController::class, 'admonPreferences'
 Route::post('ActualizarTelefono/', [TelefonoController::class, 'ActualizarTelefono'])->name('user.actualizarTelefono');
 Route::post('actualizarCategoria/', [CategoriaController::class, 'actualizarCategoria'])->name('admin.actualizarCategoria'); //Proceso de login
 Route::post('crearCategoria/', [CategoriaController::class, 'crearCategoria'])->name('admin.crearCategoria'); //Proceso de login
+Route::post('crearComentario/', [UsuarioController::class, 'crearComentario'])->name('admin.crearComentario'); //Proceso de login
+
 Route::post('crearTelefono/', [TelefonoController::class, 'crearTelefono'])->name('user.crearTelefono'); //Proceso de login
 Route::post('procesarDenuncia/', [DenunciaController::class, 'procesarDenuncia'])->name('admin.procesarDenuncia'); //Proceso de login
 Route::post('admonUser/', [UsuarioController::class, 'admonUser'])->name('admin.admonUser'); //Proceso de login

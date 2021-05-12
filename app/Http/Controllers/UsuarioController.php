@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\baneo;
 use Illuminate\Http\Request;
 use App\Models\usuario;
+use App\Models\valoracion;
 use Session;
 
 class UsuarioController extends Controller
@@ -267,6 +268,19 @@ class UsuarioController extends Controller
             return redirect()->to('home/')->send();
         }
     }
+
+    public function crearComentario(Request $request){
+        $user_id = session('id');
+        $valoracion = new valoracion();
+        $valoracion->estrella = $request->Valoracion;
+        $valoracion->comentario = $request->Comentario;
+        $valoracion->id_usuario = $user_id;
+        $valoracion->id_producto = $request->Producto;
+        
+        $valoracion->save();
+        return redirect()->to('viewProduct/' . $request->Producto)->send()->with('alertaNormal', 'Su registro se ha actualizado con exito');
+    }
+
     public function upgradeAdmin($id){
         if (session('rol') == 'A') {
             $siesadmin = usuario::find($id);

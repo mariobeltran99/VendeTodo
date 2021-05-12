@@ -15,12 +15,14 @@ class ProductoController extends Controller
 {
     public function viewProduct($id)
     {
+    
         $product = producto::where('id', $id)->get()->first();
         $telefono = telefono::where('id', $product->id_telefono)->get()->first();
         $product->user = usuario::where('id', $telefono->id_usuario)->get()->first();
         $imagen = imagen::where('id_producto', $product->id)->get();
         $valoracion = valoracion::where('id_producto', $product->id)->get();
         $average = valoracion::where('id_producto', $id)->pluck('estrella')->avg();
+        $product->id = $id;
         $product->telefono = $telefono;
         $product->imagen = $imagen;
         $product->valoracion = $valoracion;
