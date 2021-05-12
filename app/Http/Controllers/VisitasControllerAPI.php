@@ -25,7 +25,7 @@ class VisitasControllerAPI extends Controller
     }
     public function index_3()
     {
-        $reenvio = DB::select("SELECT p.nombre, AVG(v.estrella) AS 'promedio_estrellas' FROM valoracions v INNER JOIN productos p ON v.id_producto = p.id GROUP BY id_producto ORDER BY promedio_estrellas DESC");
+        $reenvio = DB::select("SELECT id_producto, AVG(estrella) AS 'promedio_estrellas' FROM valoracions GROUP BY id_producto ORDER BY promedio_estrellas DESC");
         return json_encode($reenvio);
     }
     /**
