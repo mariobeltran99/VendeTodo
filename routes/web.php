@@ -49,13 +49,13 @@ Route::get('/admin/viewsPage', [VisitasController::class, 'viewsPage']);
 Route::get('/admin/editCategory/{id}', [CategoriaController::class, 'editCategory']); //Formulario luego de la ruta /admin/category
 Route::get('/user/editPhone/{id}', [TelefonoController::class, 'modifiedPhone']); //Formulario luego de la ruta /user/phone'
 Route::get('/editProduct/{id}', [ProductoController::class, 'editProduct']); //Formulario luego de la ruta /myArticules
-Route::get('cover', [UsuarioController::class, 'cover']); //Seleccionar imagen /sell
 Route::get('renderUsuario/', [UsuarioController::class, 'renderUsuario']); //Proceso de login
 //cpanel despues del form
 Route::get('/baneo/{id}', [UsuarioController::class, 'baneoID']);
 Route::get('/activarDesactivar/{id}', [UsuarioController::class, 'activarDesactivar']);
 Route::get('/resetPass/{id}', [UsuarioController::class, 'resetPass']);
 Route::get('/upgradeAdmin/{id}', [UsuarioController::class, 'upgradeAdmin']);
+Route::get('/createDenuncia/{id}', [DenunciaController::class, 'createDenuncia']);
 
 //Vistas->FOOTER
 Route::get('serviceConditions', [VisitasController::class, 'conditions']);
@@ -75,7 +75,7 @@ Route::post('actualizarCategoria/', [CategoriaController::class, 'actualizarCate
 Route::post('crearCategoria/', [CategoriaController::class, 'crearCategoria'])->name('admin.crearCategoria'); //Proceso de login
 Route::post('crearTelefono/', [TelefonoController::class, 'crearTelefono'])->name('user.crearTelefono'); //Proceso de login
 Route::post('procesarDenuncia/', [DenunciaController::class, 'procesarDenuncia'])->name('admin.procesarDenuncia'); //Proceso de login
-Route::post('admonUser/', [UsuarioController::class, 'admonUser'])->name('admin.admonUser'); //Proceso de login
+Route::post('crearDenuncia/', [DenunciaController::class, 'crearDenuncia'])->name('user.crearDenuncia'); //Proceso de login
 
 //Proteccion de rutas de programacion
 Route::get('loginRegister', function () {

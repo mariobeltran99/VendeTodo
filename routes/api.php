@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/visitasJson',[VisitasControllerAPI::class, 'index']);
+Route::get('/usuariosJson',[VisitasControllerAPI::class, 'index_2']);
+Route::get('/valoracionesJson',[VisitasControllerAPI::class, 'index_3']);

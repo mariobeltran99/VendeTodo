@@ -18,7 +18,16 @@ class VisitasControllerAPI extends Controller
         $reenvio = DB::select("SELECT u.departamento, COUNT(*) as visita FROM usuarios u INNER JOIN visitas v ON u.id = v.id_usuario GROUP BY u.departamento");
         return json_encode($reenvio);
     }
-
+    public function index_2()
+    {
+        $reenvio = DB::select("SELECT departamento, COUNT(*) as 'cantidad_usuarios' FROM `usuarios` GROUP BY departamento");
+        return json_encode($reenvio);
+    }
+    public function index_3()
+    {
+        $reenvio = DB::select("SELECT p.nombre, AVG(v.estrella) AS 'promedio_estrellas' FROM valoracions v INNER JOIN productos p ON v.id_producto = p.id GROUP BY id_producto ORDER BY promedio_estrellas DESC");
+        return json_encode($reenvio);
+    }
     /**
      * Store a newly created resource in storage.
      *
