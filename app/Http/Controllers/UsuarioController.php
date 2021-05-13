@@ -121,7 +121,10 @@ class UsuarioController extends Controller
     public function plogin(Request $request)
     {
         $array = usuario::where('nombre_usuario', $request->email)->where('clave', md5($request->passs))->get()->first();
-        if (!empty($array)) {
+        $banned= baneo::where('id_usuario',$array->id)->get();
+        $today=date("d-m-Y");
+        echo count($banned);
+        if (!empty($array)and count($banned)==0) {
             $sss = new visita();
             $sss->id_usuario=$array->id;
             $sss->ip=$request->ip();
@@ -133,8 +136,42 @@ class UsuarioController extends Controller
                 'rol' => strtoupper($array->rol)
             ]);
             return redirect()->to('home/')->send();
-        } else {
+        } elseif(empty($array)) {
             return redirect()->to('login/')->send()->with('alertLogin', true);
+        }
+        elseif(!empty($array) and !empty($banned)){
+            $opc=count($banned); 
+            switch($opc){
+                case 1:
+                    $fechab =date("d-m-Y",strtotime($banned[0]->created_at."+ 15 days")); 
+                    break;
+                case 2:
+                   
+                    $fechab =date("d-m-Y",strtotime($banned[0]->created_at."+ 3 months"));                 
+                    break;
+                case 3:
+                    return redirect()->to('login/')->send()->with('alertLogin','Su cuenta ha sido baneada permanentemente ');    
+                    break;
+            }
+            if($today>$fechab){
+                echo "aaa";
+                $sss = new visita();
+                $sss->id_usuario=$array->id;
+                $sss->ip=$request->ip();
+                $sss->save();
+                session([
+                    'id' => $array->id,
+                    'nombre' => $array->nombre,
+                    'foto' => $array->foto,
+                    'rol' => strtoupper($array->rol)
+                ]);
+                return redirect()->to('home/')->send();
+            }
+            else{
+                return redirect()->to('login/')->send()->with('alertLogin','Su cuenta ha sido baneada por '.$fechab.'');    
+
+            }
+            
         }
     }
     public function Pregister(Request $request)
