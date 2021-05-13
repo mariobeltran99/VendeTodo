@@ -1,6 +1,6 @@
 @extends('..layouts.layout')
 @section('content')
-    @if (session('alertLogin'))
+    @if (session('alertLogin')!="")
         <div class="alert flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300">
             <div
                 class="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
@@ -19,7 +19,7 @@
                     Error
                 </div>
                 <div class="alert-description text-sm text-red-600">
-                    Ha fallado en alguna de tus credenciales por favor verifica
+{{{session('alertLogin')}}}
                 </div>
             </div>
         </div>
