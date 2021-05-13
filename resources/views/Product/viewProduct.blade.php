@@ -57,7 +57,6 @@ width: 20%;
             <div class="md:flex-1 px-4">
                 <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{{ $product->nombre }}</h2>
                 <p class="text-gray-500 text-sm">Publicado por <a class="text-indigo-600 no-underline">{{ $product->user->nombre }}</a></p>
-               <!--PURA PENDEJADA-->
                 @if($product->user->id != session('id'))
                     <p class="text-gray-500 text-sm"><a class="text-indigo-600 no-underline" href="/createDenuncia/{{ $product->user->id }}">Denunciar anonimamente al usuario</a></p>
                 @endif
@@ -69,7 +68,7 @@ width: 20%;
                         </div>
                     </div>
                     <div class="flex-1">
-                        <p class="text-green-500 text-xl font-semibold">5</p>
+                        <p class="text-green-500 text-xl font-semibold">{{ $product->existencia }}</p>
                         <p class="text-gray-400 text-sm">Existencias</p>
                     </div>
                 </div>
@@ -80,27 +79,31 @@ width: 20%;
                     <div class="relative">
 
                     </div>
-                    <a class="no-underline" href="#">
-                        <button type="button" class="h-14 px-6 py-2 font-semibold rounded-xl bg-green-600 hover:bg-green-500 text-white">
+                    <a class="no-underline" href="https://api.whatsapp.com/send?phone=+503{{ $product->telefono->telefono }}&text=Me%20interesa%20el%20producto%20que%20v%C3%AD%20en%20VendeTodo">
+                    <button type="button" class="h-14 px-6 py-2 font-semibold rounded-xl bg-green-600 hover:bg-green-500 text-white">
                             <i class="fas fa-phone-alt mr-2"></i> Contactar por WhatsApp
                         </button>
                     </a>
                 </div>
                 <div class="flex mx-auto items-center justify-center shadow-lg mt-56 mx-8 mb-4 max-w-lg">
-                    <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
+                    <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2" method="POST" action="/crearComentario">
+                        @csrf
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Ingrese su valoración (0-5)</h2>
                             <div class="w-full md:w-full px-3 mb-2 mt-2">
-                                <input type="number" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" value="0" min="0" max="5" required/>
+                                <input id="Valoracion" name="Valoracion" type="number" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" value="0" min="0" max="5" required/>
                             </div>
                             <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Agregue un nuevo comentario</h2>
                             <div class="w-full md:w-full px-3 mb-2 mt-2">
-                                <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Escriba su comentario...' required></textarea>
+                                <textarea id="Comentario" name="Comentario" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Escriba su comentario...' required></textarea>
                             </div>
+                            <input type="hidden" value="{{ $product->id }}" id="Producto" name="Producto">
                             <div class="w-full md:w-full flex items-start md:w-full px-3">
-                                <div class="-mr-1">
-                                    <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100 cursor-pointer" value='Publicar Comentario'>
-                                </div>
+                                @if($product->user->id != session('id'))
+                                    <div class="-mr-1">
+                                        <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100 cursor-pointer" value='Publicar Comentario'>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </form>
@@ -117,21 +120,17 @@ width: 20%;
                         <h3 class="text-purple-600 font-semibold text-lg text-center md:text-left ">{{ $val->nombre }}</h3>
                         <div class="flex ml-3">
                               <span class="flex items-center">
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
-                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
-                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
-                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
-                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
-                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
+                                @for($i = 1; $i <= 5; $i++)
+                                      @if($i <= $val->estrella)
+                                          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                          </svg>
+                                      @else
+                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                            </svg>
+                                      @endif
+                                  @endfor
                                 <span class="text-gray-600 ml-3">{{$val->estrella}} Estrellas</span>
                               </span>
                         </div>

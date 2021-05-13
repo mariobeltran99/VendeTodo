@@ -20,6 +20,7 @@ class ProductoController extends Controller
         $product->user = usuario::where('id', $telefono->id_usuario)->get()->first();
         $valoracion = valoracion::where('id_producto', $product->id)->get();
         $average = valoracion::where('id_producto', $id)->pluck('estrella')->avg();
+        $product->id = $id;
         $product->telefono = $telefono;
         $product->valoracion = $valoracion;
         $product->average = $average;

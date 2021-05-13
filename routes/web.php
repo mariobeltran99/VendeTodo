@@ -79,6 +79,7 @@ Route::post('crearDenuncia/', [DenunciaController::class, 'crearDenuncia'])->nam
 Route::post('/editMeUser/', [UsuarioController::class, 'editMeUser'])->name('user.editUser');
 Route::post('/productoNuevo', [ProductoController::class, 'productoNuevo'])->name('producto.nuevoProducto');
 Route::post('/editoProducto', [ProductoController::class, 'editoProducto'])->name('producto.editoProducto');
+Route::post('crearComentario/', [UsuarioController::class, 'crearComentario'])->name('admin.crearComentario'); //Proceso de login
 
 //Proteccion de rutas de programacion
 Route::get('loginRegister', function () {
