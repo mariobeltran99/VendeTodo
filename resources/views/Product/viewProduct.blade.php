@@ -58,8 +58,9 @@ width: 20%;
                 <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{{ $product->nombre }}</h2>
                 <p class="text-gray-500 text-sm">Publicado por <a class="text-indigo-600 no-underline">{{ $product->user->nombre }}</a></p>
                <!--PURA PENDEJADA-->
-                <p class="text-gray-500 text-sm"><a class="text-indigo-600 no-underline" href="/createDenuncia/{{ $product->user->id }}">Denunciar al usuario</a></p>
-
+                @if($product->user->id != session('id'))
+                    <p class="text-gray-500 text-sm"><a class="text-indigo-600 no-underline" href="/createDenuncia/{{ $product->user->id }}">Denunciar anonimamente al usuario</a></p>
+                @endif
                 <p class="text-gray-500 my-4">Valoración: {{$product->average}} / 5</p>
                 <div class="flex items-center space-x-4 my-4">
                     <div>

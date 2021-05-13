@@ -79,7 +79,7 @@
         }
     </style>
 <div class="flex flex-wrap justify-center">
-        <form id="form" class="bg-white items-center w-full shadow-md rounded px-6 mt-6 md:ml-6 lg:ml-6 xl:ml-6 md:mr-6 lg:mr-6 xl:mr-6 mb-6" method="POST" action="/productoNuevo">
+        <form id="form" enctype="multipart/form-data" class="bg-white items-center w-full shadow-md rounded px-6 mt-6 md:ml-6 lg:ml-6 xl:ml-6 md:mr-6 lg:mr-6 xl:mr-6 mb-6" method="POST" action="/productoNuevo" >
             <br>
             @csrf
             <h1 class="block text-gray-700 font-bold mb-1 text-x5 text-center">Agregar Artículo</h1>
@@ -106,7 +106,7 @@
                 </label>
                 <input
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        name="price" id="dispo" type="number" min="1"  placeholder="Ingresa el precio del producto" required>
+                        id="dispo" name="dispo" type="number" min="1"  placeholder="Ingresa el precio del producto" required>
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">

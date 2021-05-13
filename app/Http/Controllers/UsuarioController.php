@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\baneo;
+use App\Models\visita;
 use Illuminate\Http\Request;
 use App\Models\usuario;
 use Illuminate\Support\Str;
@@ -121,6 +122,10 @@ class UsuarioController extends Controller
     {
         $array = usuario::where('nombre_usuario', $request->email)->where('clave', md5($request->passs))->get()->first();
         if (!empty($array)) {
+            $sss = new visita();
+            $sss->id_usuario=$array->id;
+            $sss->ip=$request->ip();
+            $sss->save();
             session([
                 'id' => $array->id,
                 'nombre' => $array->nombre,
@@ -305,10 +310,15 @@ class UsuarioController extends Controller
         if (session('rol') == 'A') {
             $siesadmin = usuario::find($id);
             if ($siesadmin->rol != 'a') {
-                $user = usuario::find($id);
-                $user->activo =intval(!$user->activo);
-                $user->save();
-                return redirect()->to('/admin/viewUsers')->send()->with('alertaNormal', 'Su registro se ha actualizado con exito');
+                $bansbans = baneo::where('id_usuario',$id);
+                if (count($bansbans) == 0) {
+                    $user = usuario::find($id);
+                    $user->activo = intval(!$user->activo);
+                    $user->save();
+                    return redirect()->to('/admin/viewUsers')->send()->with('alertaNormal', 'Su registro se ha actualizado con exito');
+                } else {
+                    return redirect()->to('/admin/viewUsers')->send()->with('alertaError', 'El usuario tiene baneos');
+                }
             }else{
                 return redirect()->to('/admin/viewUsers')->send()->with('alertaError', 'No se puede desactivar');
             }

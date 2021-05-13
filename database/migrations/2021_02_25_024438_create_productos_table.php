@@ -19,7 +19,7 @@ class CreateProductosTable extends Migration
             $table->unsignedBigInteger('id_categoria');
             $table->string('nombre', 150);
             $table->double('precio', 10, 2);
-            $table->boolean('negociable');
+            $table->char('negociable');
             $table->text('descripcion');
             $table->integer('existencia');
             $table->string('foto', 250);

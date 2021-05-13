@@ -9,6 +9,8 @@
                     <div class="px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2">
                         <x-article
                             id="{{ $item->idp }}"
+                            titulo="{{ $item->nombrep }}"
+                            descrp="{{ $item->descripcionp }}"
                         ></x-article>
                     </div>
                 @endforeach

@@ -13,8 +13,9 @@
             <img class="rounded img-box border-2 border-gray-300" src="https://www.muycomputer.com/wp-content/uploads/2020/01/ASUS_ZenBook_Duo.jpg" />
         </div>
         <div id="body">
-                <h4 id="name" class="text-xl font-semibold mb-2 sm:mt-3 md:mt-3 lg:mt-1 xl:mt-1 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h4>
-                <p id="job" class="text-gray-800 mt-2">Ut eni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h4 id="name" class="text-xl font-semibold mb-2 sm:mt-3 md:mt-3 lg:mt-1 xl:mt-1 ">
+                    {{ $titulo }}</h4>
+                <p id="job" class="text-gray-800 mt-2">{{ $descrp }}</p>
                 <div class="mt-5">
                     <div class="inline-block mr-1 mt-2">
                         <a href="/viewProduct/{{ $id }}">

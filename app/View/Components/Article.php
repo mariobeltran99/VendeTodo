@@ -12,9 +12,13 @@ class Article extends Component
      * @return void
      */
     public $id;
-    public function __construct($id)
+    public $titulo;
+    public $descrp;
+    public function __construct($id,$titulo,$descrp)
     {
         $this->id = $id;
+        $this->titulo = $titulo;
+        $this->descrp = $descrp;
     }
 
     /**
