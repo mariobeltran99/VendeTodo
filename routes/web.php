@@ -43,13 +43,14 @@ Route::get('/logout', [UsuarioController::class, 'cerrar_sesion']);
 Route::get('/admin/viewUsers', [UsuarioController::class, 'viewUsers']);
 Route::get('/admin/category', [CategoriaController::class, 'admon']);
 Route::get('/admin/complaint', [DenunciaController::class, 'admon']);
-Route::get('/admin/viewsPage', [VisitasController::class, 'viewsPage']);
 
 //VistasExtras despues de algun formulario
 Route::get('/admin/editCategory/{id}', [CategoriaController::class, 'editCategory']); //Formulario luego de la ruta /admin/category
 Route::get('/user/editPhone/{id}', [TelefonoController::class, 'modifiedPhone']); //Formulario luego de la ruta /user/phone'
 Route::get('/editProduct/{id}', [ProductoController::class, 'editProduct']); //Formulario luego de la ruta /myArticules
 Route::get('renderUsuario/', [UsuarioController::class, 'renderUsuario']); //Proceso de login
+Route::get('/renderProductHome', [ProductoController::class, 'renderProductHome']); //Proceso de login
+
 //cpanel despues del form
 Route::get('/baneo/{id}', [UsuarioController::class, 'baneoID']);
 Route::get('/activarDesactivar/{id}', [UsuarioController::class, 'activarDesactivar']);
