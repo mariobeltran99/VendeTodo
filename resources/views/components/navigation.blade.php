@@ -27,17 +27,11 @@
                                     <!-- repetir este li para mostrar-->
                                     @foreach($listc as $key)
                                         <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                            <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
+                                            <a href="/renderProduct/{{$key->id}}" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
                                                 <span class="flex-1">{{$key->nombre}}</span>
                                             </a>
                                         </li>
                                     @endforeach
-                                    <!-- <li class="relative" x-data="{showChildren:false}" @mouseleave="showChildren=false" @mouseenter="showChildren=true">
-                                        <a href="#" class="px-4 py-2 flex w-full items-start hover:bg-gray-100 no-underline hover:no-underline transition-colors duration-100 cursor-pointer">
-                                            <span class="flex-1">Autos</span>
-                                        </a>
-                                    </li> -->
-                                    <!-- end li -->
                                 </ul>
                             </div>
                         </div>

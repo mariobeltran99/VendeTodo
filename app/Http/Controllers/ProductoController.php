@@ -58,7 +58,7 @@ class ProductoController extends Controller
     public function renderProductHome(Request $request)
     {
         $salid = "";
-        $cosas = producto::where('nombre','like',$request->texto."%")->where('existencia','!=','0')->take(3)->get();
+        $cosas = producto::join('telefonos','telefonos.id','=','productos.id_telefono')->join('usuarios','usuarios.id','=','telefonos.id_usuario')->where('productos.nombre','like',$request->texto."%")->where('productos.existencia','!=','0')->where('usuarios.activo','1')->take(3)->select('productos.id','productos.nombre','productos.precio','productos.foto',)->get();
         if (count($cosas) != 0) {
             $salid = "<style>
             .img-box {
@@ -106,6 +106,15 @@ class ProductoController extends Controller
             $salid .= "<h1>No hay articulos relacionados</h1>";
         }
         return $salid;
+    }
+    public function renderProduct($id)
+    {
+        if (!empty(session('id'))) {
+            $listp = producto::join('telefonos', 'telefonos.id', '=', 'productos.id_telefono')->join('usuarios', 'usuarios.id', '=', 'telefonos.id_usuario')->where('productos.id_categoria', $id)->where('productos.existencia', '!=', '0')->where('usuarios.activo', '1')->select('productos.id', 'productos.nombre', 'productos.precio', 'productos.foto',)->get();
+            return view('Product.productCat', compact('listp'));
+        } else {
+            return redirect()->to('login/')->send();
+        }
     }
     public function productoNuevo(Request $request)
     {

@@ -50,6 +50,7 @@ Route::get('/user/editPhone/{id}', [TelefonoController::class, 'modifiedPhone'])
 Route::get('/editProduct/{id}', [ProductoController::class, 'editProduct']); //Formulario luego de la ruta /myArticules
 Route::get('renderUsuario/', [UsuarioController::class, 'renderUsuario']); //Proceso de login
 Route::get('/renderProductHome', [ProductoController::class, 'renderProductHome']); //Proceso de login
+Route::get('/renderProduct/{id}', [ProductoController::class, 'renderProduct']); //Proceso de login
 
 //cpanel despues del form
 Route::get('/baneo/{id}', [UsuarioController::class, 'baneoID']);
