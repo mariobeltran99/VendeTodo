@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categoria;
 use Illuminate\Support\Facades\DB; //RECUERDA ELIMINARLO
 
 use Illuminate\Http\Request;
@@ -47,9 +48,29 @@ class ProductoController extends Controller
     {
         if (!empty(session('id'))) {
             $listt = telefono::where('id_usuario', session('id'))->get();
-            return view('Product.sell', compact('listt'));
+            $listl = categoria::all();
+            return view('Product.sell', compact('listt','listl'));
         } else {
             return redirect()->to('login/')->send();
+        }
+    }
+    public function productoNuevo(Request $request)
+    {
+        if ($request->file('imagenperfil') != "") {
+            $producto = new producto();
+            $producto->id_telefono=$request->message1;
+            $producto->id_categoria=$request->message2;
+            $producto->precio=$request->price;
+            $producto->nombre=$request->name;
+            $producto->negociable=$request->has(negociable);
+            $producto->descripcion=$request->descripcion;
+            $producto->existencia=$request->dispo;
+            $image = $request->file('imagenperfil');
+            $nombre = time() . "_" . $image->getClientOriginalName();
+            $image->move('storage', $nombre);
+            $producto->save();
+        } else {
+            return redirect()->to('/sell')->send()->with('alertaError', 'No se puede subir sin imagenes');
         }
     }
     public function editProduct($id)

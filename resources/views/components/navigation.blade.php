@@ -1,5 +1,9 @@
 @php
-    $holi = "img/".session('foto');
+    if (session('foto') == "profileDefault.png"){
+        $holi = "img/".session('foto');
+    }else{
+        $holi = "storage/".session('foto');
+    }
 @endphp
 <div>
     <style>

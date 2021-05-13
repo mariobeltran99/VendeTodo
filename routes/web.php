@@ -76,6 +76,8 @@ Route::post('crearCategoria/', [CategoriaController::class, 'crearCategoria'])->
 Route::post('crearTelefono/', [TelefonoController::class, 'crearTelefono'])->name('user.crearTelefono'); //Proceso de login
 Route::post('procesarDenuncia/', [DenunciaController::class, 'procesarDenuncia'])->name('admin.procesarDenuncia'); //Proceso de login
 Route::post('crearDenuncia/', [DenunciaController::class, 'crearDenuncia'])->name('user.crearDenuncia'); //Proceso de login
+Route::post('/editMeUser/', [UsuarioController::class, 'editMeUser'])->name('user.editUser');
+Route::post('/productoNuevo', [ProductoController::class, 'productoNuevo'])->name('producto.nuevoProducto');
 
 //Proteccion de rutas de programacion
 Route::get('loginRegister', function () {

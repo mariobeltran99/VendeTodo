@@ -60,6 +60,37 @@ class UsuarioController extends Controller
             return redirect()->to('login/')->send();
         }
     }
+    public function editMeUser(Request $request)
+    {
+        if ($request->corregir) {
+            if (!$this->meemail($request->input("correo"),session("id"))) {
+                $Meuser = usuario::find(session('id'));
+                $Meuser->nombre=$request->nombre;
+                $Meuser->nombre=$request->correo;
+                $Meuser->clave=($request->pass == "")?$Meuser->clave:md5($request->pass);
+                if ($request->file('imagenperfil') != "") {
+                    $image = $request->file('imagenperfil');
+                    $nombre = time() . "_" . $image->getClientOriginalName();
+                    $image->move('storage', $nombre);
+                    $Meuser->foto=$nombre;
+                    $Meuser->save();
+                    session(["foto"=>$nombre]);
+                } else {
+                    $Meuser->save();
+                }
+                return redirect()->to('/user/edit')->send()->with('alertaNormal', 'Se actualizo');
+            } else {
+                return redirect()->to('/user/edit')->send()->with('alertaError', 'Hubo un conflicto de correos');
+            }
+        }
+        if ($request->borrar) {
+            $Meuser = usuario::find(session('id'));
+            $Meuser->activo=0;
+            $Meuser->save();
+            return redirect()->to('/logout')->send();
+        }
+    }
+
     public function loginRegister(Request $request)
     {
         if ($this->existEmail($request->name)) {
@@ -71,6 +102,15 @@ class UsuarioController extends Controller
     private function existEmail($email)
     {
         $array = usuario::where('nombre_usuario', $email)->get();
+        if (count($array) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    private function meemail($email, $id)
+    {
+        $array = usuario::where('nombre_usuario', $email)->where('id','!=',$id)->get();
         if (count($array) != 0) {
             return true;
         } else {
@@ -131,8 +171,13 @@ class UsuarioController extends Controller
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="rounded-full w-6 h-6"
-                                 src="/img/' . $item->foto . '"
+                            <img class="rounded-full w-6 h-6"';
+                if ($item->foto == "profileDefault.png") {
+                    $salid .= 'src="/img/'.$item->foto;
+                } else {
+                    $salid .= 'src="/storage/'.$item->foto;
+                }
+                $salid.= '
                                  alt="" />
                         </div>
                         <div class="ml-3">

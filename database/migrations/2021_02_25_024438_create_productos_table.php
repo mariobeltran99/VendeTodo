@@ -22,6 +22,7 @@ class CreateProductosTable extends Migration
             $table->boolean('negociable');
             $table->text('descripcion');
             $table->integer('existencia');
+            $table->string('foto', 250);
             $table->foreign('id_telefono')->references('id')->on('telefonos');
             $table->foreign('id_categoria')->references('id')->on('categorias');
             $table->timestamps();

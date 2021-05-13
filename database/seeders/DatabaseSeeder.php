@@ -31,9 +31,7 @@ class DatabaseSeeder extends Seeder
         usuario::factory(20)->create();
         telefono::factory(20)->create();
         producto::factory(20)->create();
-        imagen::factory(50)->create();
         denuncia::factory(20)->create();
-        captura::factory(50)->create();
         baneo::factory(3)->create();
         valoracion::factory(50)->create();
         visita::factory(100)->create();

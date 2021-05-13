@@ -28,7 +28,8 @@ class productoFactory extends Factory
             'precio' => $this->faker->numberBetween(1, 60),
             'negociable' => $this->faker->boolean(),
             'descripcion' => $this->faker->paragraph(),
+            'foto' => $this->faker->randomElement(['imagen1.jpg','imagen2.jpg','imagen3.png','imagen4.png']),
             'existencia' => $this->faker->numberBetween(0, 6)
         ];
-    }
+    }//
 }

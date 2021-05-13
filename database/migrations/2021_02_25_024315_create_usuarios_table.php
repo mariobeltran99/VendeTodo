@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre_usuario', 250)->unique();
             $table->string('nombre', 100);
             $table->string('clave');
-            $table->string('foto', 20);
+            $table->string('foto', 250);
             $table->boolean('activo');
             $table->char('rol', 1);
             $table->string('departamento', 50);
