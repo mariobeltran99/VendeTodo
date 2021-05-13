@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\baneo;
 use Illuminate\Http\Request;
 use App\Models\usuario;
+use Illuminate\Support\Str;
 use Session;
 
 class UsuarioController extends Controller
@@ -93,7 +94,28 @@ class UsuarioController extends Controller
     }
     public function Pregister(Request $request)
     {
-        return redirect()->to('preferences/')->send();
+        if (!$this->existEmail($request->input("correo"))) {
+            $array=new usuario();
+            $array->nombre_usuario=$request->input("correo");
+            $array->nombre=$request->input("nombre");
+            $array->clave=md5($request->input("pass"));
+            $array->foto="profileDefault.png";
+            $array->activo=1;
+            $array->rol="u";
+            $array->departamento=$request->input("departamento");
+            $array->token=Str::random(100);
+            $array->save();
+            echo $array;
+            session([
+                'id' => $array->id,
+                'nombre' => $array->nombre,
+                'foto' => $array->foto,
+                'rol' => strtoupper($array->rol)
+            ]);
+            return redirect()->to('preferences/')->send();
+        } else {
+            return redirect()->to('/register')->send()->with('alertLogin', 'EL CORREO ESTA SIENDO UTILIZADO');
+        }
     }
     public function cerrar_sesion(){
         Session::flush();

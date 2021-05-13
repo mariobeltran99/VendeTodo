@@ -115,7 +115,7 @@ function dataFileDnD() {
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                    Añadir Fotos                </label>
+                    Añadir Fotos(por motivos de espacio se sube unicamenete una foto)                </label>
                     <div class="bg-white p7 rounded w-9/12 mx-auto">
                         <div x-data="dataFileDnD()" class="relative flex flex-col p-4 text-gray-400 border border-gray-200 rounded">
                             <div x-ref="dnd"
@@ -201,7 +201,7 @@ function dataFileDnD() {
                     class="mx-auto w-full
                      bg-green-500 hover:bg-green-700 text-white font-bold py-2 mb-6 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit">
-                    Siguiente <i class="fas fa-arrow-right ml-2"></i>
+                    Subir al sitio<i class="fas fa-arrow-right ml-2"></i>
                 </button>
              </div>
         </form>

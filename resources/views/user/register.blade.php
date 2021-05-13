@@ -1,5 +1,29 @@
 @extends('..layouts.layout')
 @section('content')
+    @if (session('alertLogin') != "")
+        <div class="alert flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300">
+            <div
+                    class="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
+        <span class="text-red-500">
+            <svg fill="currentColor"
+                 viewBox="0 0 20 20"
+                 class="h-6 w-6">
+                <path fill-rule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clip-rule="evenodd"></path>
+            </svg>
+        </span>
+            </div>
+            <div class="alert-content ml-4">
+                <div class="alert-title font-semibold text-lg text-red-800">
+                    Error
+                </div>
+                <div class="alert-description text-sm text-red-600">
+                    {{session('alertLogin')}}
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="min-h-screen bg-gray-400 flex flex-col justify-center sm:py-12">
         <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md"><br><br>
             <h1 class="font-bold text-center text-2xl mb-5">Vende Todo</h1>
@@ -8,13 +32,13 @@
                     @csrf
                     <div class="px-5 py-7 mt-5">
                         <label class="font-semibold text-sm text-gray-600 pb-1 block">Nombre Completo</label>
-                        <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" required />
+                        <input type="text" name="nombre" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" required />
                         <label class="font-semibold text-sm text-gray-600 pb-1 block">Correo Electrónico</label>
-                        <input type="email" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" value="{{ session('email') ?? '' }}" required/>
+                        <input type="email" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" value="{{ session('email') ?? '' }}" required name="correo"/>
                         <label class="font-semibold text-sm text-gray-600 pb-1 block">Contraseña</label>
-                        <input type="password" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" required />
+                        <input type="password" name="pass" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" required />
                         <label class="font-semibold text-sm text-gray-600 pb-1 block">Departamento</label>
-                        <select class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full">
+                        <select class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" name="departamento">
                             @foreach ($listd as $dep)
                             <option value=" {{$dep->name}} ">{{ $dep->name }}</option>
                             @endforeach
@@ -60,5 +84,6 @@
     </div>
     @php
         session()->forget('email');
+        session()->forget('alertLogin');
     @endphp
 @endsection
