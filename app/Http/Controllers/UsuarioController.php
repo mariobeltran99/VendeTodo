@@ -148,6 +148,10 @@ class UsuarioController extends Controller
                 'foto' => $array->foto,
                 'rol' => strtoupper($array->rol)
             ]);
+            if ($array->activo == 0) {//SI ESTA DESACTIVADO ACTIVAR
+                $array->activo=1;
+                $array->save();
+            }
             return redirect()->to('home/')->send();
         } elseif(empty($array)) {
             return redirect()->to('login/')->send()->with('alertLogin', true);
