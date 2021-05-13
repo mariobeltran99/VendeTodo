@@ -14,11 +14,13 @@ class Article extends Component
     public $id;
     public $titulo;
     public $descrp;
-    public function __construct($id,$titulo,$descrp)
+    public $foto;
+    public function __construct($id,$titulo,$descrp,$foto)
     {
         $this->id = $id;
         $this->titulo = $titulo;
         $this->descrp = $descrp;
+        $this->foto = $foto;
     }
 
     /**

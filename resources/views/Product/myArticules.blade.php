@@ -11,6 +11,7 @@
                             id="{{ $item->idp }}"
                             titulo="{{ $item->nombrep }}"
                             descrp="{{ $item->descripcionp }}"
+                            foto="{{ $item->fotop }}"
                         ></x-article>
                     </div>
                 @endforeach
