@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\baneo;
+use App\Models\visita;
 use Illuminate\Http\Request;
 use App\Models\usuario;
+use Illuminate\Support\Str;
 use Session;
 
 class UsuarioController extends Controller
@@ -59,6 +61,37 @@ class UsuarioController extends Controller
             return redirect()->to('login/')->send();
         }
     }
+    public function editMeUser(Request $request)
+    {
+        if ($request->corregir) {
+            if (!$this->meemail($request->input("correo"),session("id"))) {
+                $Meuser = usuario::find(session('id'));
+                $Meuser->nombre=$request->nombre;
+                $Meuser->nombre=$request->correo;
+                $Meuser->clave=($request->pass == "")?$Meuser->clave:md5($request->pass);
+                if ($request->file('imagenperfil') != "") {
+                    $image = $request->file('imagenperfil');
+                    $nombre = time() . "_" . $image->getClientOriginalName();
+                    $image->move('storage', $nombre);
+                    $Meuser->foto=$nombre;
+                    $Meuser->save();
+                    session(["foto"=>$nombre]);
+                } else {
+                    $Meuser->save();
+                }
+                return redirect()->to('/user/edit')->send()->with('alertaNormal', 'Se actualizo');
+            } else {
+                return redirect()->to('/user/edit')->send()->with('alertaError', 'Hubo un conflicto de correos');
+            }
+        }
+        if ($request->borrar) {
+            $Meuser = usuario::find(session('id'));
+            $Meuser->activo=0;
+            $Meuser->save();
+            return redirect()->to('/logout')->send();
+        }
+    }
+
     public function loginRegister(Request $request)
     {
         if ($this->existEmail($request->name)) {
@@ -76,10 +109,23 @@ class UsuarioController extends Controller
             return false;
         }
     }
+    private function meemail($email, $id)
+    {
+        $array = usuario::where('nombre_usuario', $email)->where('id','!=',$id)->get();
+        if (count($array) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function plogin(Request $request)
     {
         $array = usuario::where('nombre_usuario', $request->email)->where('clave', md5($request->passs))->get()->first();
         if (!empty($array)) {
+            $sss = new visita();
+            $sss->id_usuario=$array->id;
+            $sss->ip=$request->ip();
+            $sss->save();
             session([
                 'id' => $array->id,
                 'nombre' => $array->nombre,
@@ -93,7 +139,28 @@ class UsuarioController extends Controller
     }
     public function Pregister(Request $request)
     {
-        return redirect()->to('preferences/')->send();
+        if (!$this->existEmail($request->input("correo"))) {
+            $array=new usuario();
+            $array->nombre_usuario=$request->input("correo");
+            $array->nombre=$request->input("nombre");
+            $array->clave=md5($request->input("pass"));
+            $array->foto="profileDefault.png";
+            $array->activo=1;
+            $array->rol="u";
+            $array->departamento=$request->input("departamento");
+            $array->token=Str::random(100);
+            $array->save();
+            echo $array;
+            session([
+                'id' => $array->id,
+                'nombre' => $array->nombre,
+                'foto' => $array->foto,
+                'rol' => strtoupper($array->rol)
+            ]);
+            return redirect()->to('preferences/')->send();
+        } else {
+            return redirect()->to('/register')->send()->with('alertLogin', 'EL CORREO ESTA SIENDO UTILIZADO');
+        }
     }
     public function cerrar_sesion(){
         Session::flush();
@@ -109,8 +176,13 @@ class UsuarioController extends Controller
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="rounded-full w-6 h-6"
-                                 src="/img/' . $item->foto . '"
+                            <img class="rounded-full w-6 h-6"';
+                if ($item->foto == "profileDefault.png") {
+                    $salid .= 'src="/img/'.$item->foto;
+                } else {
+                    $salid .= 'src="/storage/'.$item->foto;
+                }
+                $salid.= '
                                  alt="" />
                         </div>
                         <div class="ml-3">
@@ -238,10 +310,15 @@ class UsuarioController extends Controller
         if (session('rol') == 'A') {
             $siesadmin = usuario::find($id);
             if ($siesadmin->rol != 'a') {
-                $user = usuario::find($id);
-                $user->activo =intval(!$user->activo);
-                $user->save();
-                return redirect()->to('/admin/viewUsers')->send()->with('alertaNormal', 'Su registro se ha actualizado con exito');
+                $bansbans = baneo::where('id_usuario',$id);
+                if (count($bansbans) == 0) {
+                    $user = usuario::find($id);
+                    $user->activo = intval(!$user->activo);
+                    $user->save();
+                    return redirect()->to('/admin/viewUsers')->send()->with('alertaNormal', 'Su registro se ha actualizado con exito');
+                } else {
+                    return redirect()->to('/admin/viewUsers')->send()->with('alertaError', 'El usuario tiene baneos');
+                }
             }else{
                 return redirect()->to('/admin/viewUsers')->send()->with('alertaError', 'No se puede desactivar');
             }

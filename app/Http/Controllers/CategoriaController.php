@@ -28,10 +28,7 @@ class CategoriaController extends Controller
     }
     public function admonPreferences(Request $request)
     {
-        session([
-            'id' => 5,
-            'rol' => "U"
-        ]);
+        setcookie("preferencia",json_encode($request->preferencia),time()-84600);
         return redirect()->to('home/')->send();
     }
     public function editCategory($id)

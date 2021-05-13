@@ -3,7 +3,7 @@
     <div class="bg-gray-400">
         <h1 class="text-4xl text-black text-center sm:text-2xl font-bold p-6">Elija sus categorías de preferencia.</h1>
         <div class="container my-12 mx-auto px-4 md:px-12" >
-            <form class="flex flex-wrap -mx-1 lg:-mx-4" method="POST" action="admonPreferences">
+            <form class="flex flex-wrap -mx-1 lg:-mx-4" method="POST" action="/admonPreferences">
                 @csrf
                 @foreach ($listCategorie as $categorie)
                     <div class="my-1 px-1 w-full md:w-1/2 lg:my-2 lg:px-2 lg:w-1/3">
@@ -25,7 +25,7 @@
                                 <div class="p-2 bg-white border-gray-200 text-right">
                                     <!-- button link -->
                                     <label class="inline-flex items-center mt-3">
-                                        <input type="checkbox" name="{{$categorie->id}}" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700"></span>
+                                        <input type="checkbox" name="preferencia[]" value="{{$categorie->id}}" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700"></span>
                                     </label>
                                 </div>
                             </div>
