@@ -2,7 +2,9 @@
 
 namespace App\View\Components;
 
+use App\Models\categoria;
 use Illuminate\View\Component;
+
 
 class Navigation extends Component
 {
@@ -11,9 +13,10 @@ class Navigation extends Component
      *
      * @return void
      */
-    public $flag, $name, $imgsrc;
+    public $flag, $name, $imgsrc, $listc;
     public function __construct($flagR, $named,$url)
     {
+        $this->listc = categoria::all();
         $this->flag = $flagR;
         $this->name = $named;
         $this->imgsrc = $url;

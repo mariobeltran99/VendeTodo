@@ -23,7 +23,7 @@ class productoFactory extends Factory
     {
         return [
             'id_telefono' => $this->faker->numberBetween(1, 20),
-            'id_categoria' => $this->faker->numberBetween(1, 20),
+            'id_categoria' => $this->faker->numberBetween(1, 10),
             'nombre' => $this->faker->sentence(),
             'precio' => $this->faker->numberBetween(1, 60),
             'negociable' => $this->faker->boolean(),

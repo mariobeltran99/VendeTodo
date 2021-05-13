@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\baneo;
+use App\Models\producto;
 use App\Models\visita;
 use Illuminate\Http\Request;
 use App\Models\usuario;
@@ -58,7 +59,8 @@ class UsuarioController extends Controller
             } else {
                 $contra = false;
             }
-            return view('user.home', compact('contra'));
+            $listp = producto::take(3)->get();
+            return view('user.home', compact('contra','listp'));
         } else {
             return redirect()->to('login/')->send();
         }
